@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Ugochukwu | Web Developer Portfolio</title>
+  <link rel="icon" href="https://image2url.com/images/1759256290632-55f4e88b-aa2c-4f91-afd4-29f8303e12a0.jpg" type="image/png">
+<link rel="canonical" href="https://ugochukwu-portfolio.surge.sh" />
+
+
+  <!-- ✅ Google Site Verification -->
+  <meta name="google-site-verification" content="0I6OH2UNnqoYZYszvni6Dn5tVKPfNW0LFWmIcdex29Q" />
+<meta name="google-site-verification" content="SHg4dU4a0g_noOZc7D9wDXTtobDvWiKEmpSqvTzxo4s" />
+
+
+  <!-- ✅ SEO Meta Tags -->
+  <meta name="description" content="Ugochukwu's Portfolio - A passionate Web Developer skilled in HTML, CSS, JavaScript, React, and Node.js. Explore projects, skills, and contact details." />
+  <meta name="keywords" content="Ugochukwu, Portfolio, Web Developer, Frontend, Backend, React, Node.js, HTML, CSS, JavaScript" />
+  <meta name="author" content="Ugochukwu Jonathan" />
+
+  <!-- ✅ Open Graph (Facebook/LinkedIn Preview) -->
+  <meta property="og:title" content="Ugochukwu | Web Developer Portfolio" />
+  <meta property="og:description" content="Explore Ugochukwu's portfolio showcasing projects, skills, and journey as a Web Developer." />
+  <meta property="og:image" content="https://image2url.com/images/1759256290632-55f4e88b-aa2c-4f91-afd4-29f8303e12a0.jpg" />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://ugochukwu-portfolio.surge.sh" />
+
+  <!-- ✅ Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Ugochukwu | Web Developer Portfolio" />
+  <meta name="twitter:description" content="Discover projects, skills, and achievements of Ugochukwu - Web Developer & Designer." />
+  <meta name="twitter:image" content="https://image2url.com/images/1759256290632-55f4e88b-aa2c-4f91-afd4-29f8303e12a0.jpg" />
+
+  <!-- ✅ Structured Data (JSON-LD for Google) -->
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Person",
+  "name": "Ugochukwu Jonathan",
+  "url": "https://ugochukwu-portfolio.surge.sh",
+  "image": "https://image2url.com/images/1759256290632-55f4e88b-aa2c-4f91-afd4-29f8303e12a0.jpg",
+  "jobTitle": "Web Developer",
+  "description": "Passionate Web Developer skilled in HTML, CSS, JavaScript, React, and Node.js.",
+  "sameAs": [
+    "https://www.facebook.com/share/1BCG5qD7mM/?mibextid=wwXIfr",
+    "https://github.com/Ugoyoungking",
+    "https://linkedin.com/in/ugochukwu-jonathan067",
+    "https://wa.me/2349127714886"
+  ]
+}
+</script>
+
+
+  <!-- AOS & Typed.js -->
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+
+  <!-- Navbar -->
+  <!-- Navbar -->
+<nav>
+  <h1>Ugochukwu</h1>
+  <div class="hamburger" id="hamburger">☰</div>
+  <ul id="nav-links">
+    <li><a href="#about">About</a></li>
+    <li><a href="#skills">Skills</a></li>
+    <li><a href="#projects">Projects</a></li>
+    <li><a href="#timeline">Timeline</a></li>
+    <li><a href="#contact">Contact</a></li>
+    <li><button id="loginBtn">Login</button></li>
+    <li><button id="signupBtn">Signup</button></li>
+  </ul>
+  <button id="toggle-dark">🌙 Dark Mode</button>
+</nav>
+
+<!-- Login Modal -->
+<div class="modal" id="loginModal">
+  <div class="modal-content">
+    <span class="close">&times;</span>
+    <h3>Login</h3>
+    <input type="email" id="loginEmail" placeholder="Email" required>
+    <input type="password" id="loginPassword" placeholder="Password" required>
+    <button id="doLogin">Login</button>
+  </div>
+</div>
+
+<!-- Signup Modal -->
+<div class="modal" id="signupModal">
+  <div class="modal-content">
+    <span class="close">&times;</span>
+    <h3>Signup</h3>
+    <input type="text" id="signupName" placeholder="Full Name" required>
+    <input type="email" id="signupEmail" placeholder="Email" required>
+    <input type="password" id="signupPassword" placeholder="Password" required>
+    <button id="doSignup">Signup</button>
+  </div>
+</div>
+
+  <!-- Hero -->
+  <section class="hero">
+    <h2>Hi, I'm Ugochukwu 👋</h2>
+    <p><span class="typed-text"></span></p>
+    <button onclick="window.location.href='#projects'">View My Work</button>
+    <a href="cv.pdf" download class="download-btn">📄 Download CV</a>
+  </section>
+
+  <!-- About -->
+  <section id="about" class="about" data-aos="fade-up">
+    <img src="https://image2url.com/images/1759256290632-55f4e88b-aa2c-4f91-afd4-29f8303e12a0.jpg" alt="Profile Picture">
+    <div class="about-text">
+      <h3>About Me</h3>
+      <p>I am a passionate and God fearing web developer and graphic designer who loves building interactive, responsive, and user-friendly websites. My journey started with HTML & CSS, and now I work with modern technologies to create professional projects.</p>
+      <a href="cv.pdf" download class="download-btn">📄 Download My CV</a>
+    </div>
+  </section>
+
+  <!-- Skills -->
+  <section id="skills" class="skills" data-aos="fade-right">
+    <h3>My Skills</h3>
+    <div class="skill-list">
+      <div class="skill">HTML5</div><div class="skill">CSS3</div><div class="skill">JavaScript</div>
+      <div class="skill">React</div><div class="skill">Node.js</div><div class="skill">Git & GitHub</div>
+    </div>
+  </section>
+
+  <!-- Projects -->
+  <section id="projects" class="projects" data-aos="fade-up">
+    <h3>Projects</h3>
+    <div class="filter-bar"><input type="text" id="projectSearch" placeholder="🔍 Search projects..."></div>
+    <div class="project-grid" id="projectGrid">
+      <div class="project" data-title="Portfolio Website">
+        <img src="https://image2url.com/images/1759256821458-cff41bed-719d-485e-b61f-13581719a3d0.jpeg" alt="Project 1">
+        <h4>Portfolio Website</h4><p>A personal portfolio built with HTML, CSS, and JavaScript.</p>
+      </div>
+      <div class="project" data-title="Task Manager App">
+        <img src="https://image2url.com/images/1759257093694-61528718-9762-479b-bf27-05924ccccb91.png" alt="Project 2">
+        <h4>Task Manager App</h4><p>A full-stack task management app built with React & Node.js.</p>
+      </div>
+      <div class="project" data-title="E-Commerce Store">
+        <img src="https://image2url.com/images/1759257304155-e0c802ee-25f5-45f8-b401-b99926828f30.png" alt="Project 3">
+        <h4>E-Commerce Store</h4><p>An online shop with product listings and cart functionality.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Timeline -->
+  <section id="timeline" class="timeline" data-aos="fade-left">
+    <h3>My Journey</h3>
+    <div class="timeline-item"><h4>2022 - Started Learning</h4><p>Began with HTML, CSS and small projects.</p></div>
+    <div class="timeline-item"><h4>2023 - Learned JavaScript & React</h4><p>Built dynamic apps and interactive websites.</p></div>
+    <div class="timeline-item"><h4>2024 - Freelancing & Open Source</h4><p>Worked with clients and contributed to open source.</p></div>
+    <div class="timeline-item"><h4>2025 - Advanced Projects</h4><p>Developing full-stack apps with Node.js & React.</p></div>
+  </section>
+
+  <!-- Testimonials -->
+  <section class="testimonials" data-aos="fade-up">
+    <h3>What People Say</h3>
+    <div class="testimonial">“Ugochukwu is a talented developer who delivered our project on time with great quality!” – Client A</div>
+    <div class="testimonial">“His designs are clean, modern, and user-friendly. Highly recommend!” – Client B</div>
+  </section>
+
+  <!-- Contact -->
+  <section id="contact" class="contact" data-aos="zoom-in">
+    <h3>Contact Me</h3>
+    <form id="contact-form">
+      <input type="text" id="name" placeholder="Your Name" required>
+      <input type="email" id="email" placeholder="Your Email" required>
+      <textarea id="message" rows="5" placeholder="Your Message" required></textarea>
+      <button type="submit">Send Message</button>
+    </form>
+    <a href="mailto:ugochukwujonathan067@gmail.com">📧 Email</a>
+    <a href="https://github.com/Ugoyoungking" target="_blank">💻 GitHub</a>
+    <a href="https://linkedin.com" target="_blank">🔗 LinkedIn</a>
+  </section>
+
+  <footer><p>© 2025 Ugochukwu | Portfolio Website</p></footer>
+  <button id="scrollTopBtn">⬆</button>
+
+  <!-- JS -->
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
+  <script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
