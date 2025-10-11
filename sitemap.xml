@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset 
+<urlset
   xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:image="http://www.google.com/schemas/sitemap-image/1.1"
 >
@@ -7,6 +7,7 @@
     <loc>https://ugoyoungking.github.io/portfolio/</loc>
     <lastmod>2025-10-11</lastmod>
     <priority>1.0</priority>
+
     <image:image>
       <image:loc>https://image2url.com/images/1760142087082-0d9360e4-2d41-4459-a0a1-135afa56a7f7.jpg</image:loc>
       <image:caption>Ugochukwu Portfolio Logo</image:caption>
