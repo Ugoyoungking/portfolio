@@ -36,33 +36,54 @@
   <meta name="twitter:image" content="https://image2url.com/images/1760142087082-0d9360e4-2d41-4459-a0a1-135afa56a7f7.jpg" />
 
   <!-- ✅ Structured Data (JSON-LD) -->
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "Person",
-    "name": "Ugochukwu Jonathan",
-    "url": "https://ugoyoungking.github.io/portfolio",
-    "jobTitle": "Web Developer",
-    "image": [
-      "https://image2url.com/images/1760142087082-0d9360e4-2d41-4459-a0a1-135afa56a7f7.jpg",
-      "https://image2url.com/images/1760142182639-b40b4fc9-d225-4f1d-be1a-fa3533bd7616.jpg",
-      "https://image2url.com/images/1760142223992-f74d68cc-7fdc-417d-8df7-732eb49cc8a2.jpg",
-      "https://image2url.com/images/1760142261420-af7d0397-6b65-4c2b-b873-ed74cbecf265.jpg"
-    ],
-    "logo": "https://image2url.com/images/1760142261420-af7d0397-6b65-4c2b-b873-ed74cbecf265.jpg",
-    "worksFor": {
-      "@type": "Organization",
-      "name": "Freelance"
+  <!-- ✅ Enhanced Structured Data -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Person",
+      "name": "Ugochukwu Jonathan",
+      "url": "https://ugoyoungking.github.io/portfolio",
+      "image": [
+        "https://image2url.com/images/1760142087082-0d9360e4-2d41-4459-a0a1-135afa56a7f7.jpg",
+        "https://image2url.com/images/1760142182639-b40b4fc9-d225-4f1d-be1a-fa3533bd7616.jpg",
+        "https://image2url.com/images/1760142223992-f74d68cc-7fdc-417d-8df7-732eb49cc8a2.jpg",
+        "https://image2url.com/images/1760142261420-af7d0397-6b65-4c2b-b873-ed74cbecf265.jpg"
+      ],
+      "jobTitle": "Web Developer",
+      "description": "Passionate Web Developer skilled in HTML, CSS, JavaScript, React, and Node.js.",
+      "sameAs": [
+        "https://github.com/Ugoyoungking",
+        "https://www.facebook.com/share/1BCG5qD7mM/?mibextid=wwXIfr",
+        "https://linkedin.com/in/ugochukwu-jonathan067",
+        "https://wa.me/2349127714886"
+      ]
     },
-    "description": "A web developer and designer skilled in React, Node.js, HTML, CSS, and JavaScript.",
-    "sameAs": [
-      "https://github.com/Ugoyoungking",
-      "https://linkedin.com/in/ugochukwu-jonathan067",
-      "https://wa.me/2349127714886",
-      "https://www.facebook.com/share/1BCG5qD7mM/?mibextid=wwXIfr"
-    ]
-  }
-  </script>
+    {
+      "@type": "Organization",
+      "name": "Ugochukwu Dev",
+      "url": "https://ugoyoungking.github.io/portfolio",
+      "logo": "https://image2url.com/images/1760142261420-af7d0397-6b65-4c2b-b873-ed74cbecf265.jpg",
+      "sameAs": [
+        "https://github.com/Ugoyoungking",
+        "https://linkedin.com/in/ugochukwu-jonathan067"
+      ]
+    },
+    {
+      "@type": "WebSite",
+      "name": "Ugochukwu Portfolio",
+      "url": "https://ugoyoungking.github.io/portfolio",
+      "potentialAction": {
+        "@type": "SearchAction",
+        "target": "https://www.google.com/search?q={search_term_string}+site:ugoyoungking.github.io/portfolio",
+        "query-input": "required name=search_term_string"
+      }
+    }
+  ]
+}
+</script>
+
 
   <!-- ✅ Hidden Images (for Google Indexing Only) -->
   <div style="display:none;">
