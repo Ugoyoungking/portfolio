@@ -1,3 +1,9 @@
 User-agent: *
 Allow: /
+Allow: /images/
+Allow: /*.jpg$
+Allow: /*.jpeg$
+Allow: /*.png$
+Disallow:
+
 Sitemap: https://ugoyoungking.github.io/portfolio/sitemap.xml
