@@ -1,0 +1,125 @@
+{
+  "@context": "https://schema.org",
+  "@type": "Person",
+  "@id": "https://ugoyoungking.github.io/portfolio#person",
+  "name": "Ugochukwu Jonathan",
+  "givenName": "Ugochukwu",
+  "familyName": "Jonathan",
+  "alternateName": ["Ugo Young King", "Ugochukwu Dev"],
+  "gender": "Male",
+  "birthDate": "2005-07-24",
+  "birthPlace": {
+    "@type": "Place",
+    "name": "Enugu State, Nigeria"
+  },
+  "nationality": "Nigerian",
+  "religion": "Christianity",
+  "url": "https://ugoyoungking.github.io/portfolio/",
+  "image": [
+    "https://image2url.com/images/1760142087082-0d9360e4-2d41-4459-a0a1-135afa56a7f7.jpg",
+    "https://image2url.com/images/1760142182639-b40b4fc9-d225-4f1d-be1a-fa3533bd7616.jpg",
+    "https://image2url.com/images/1760142223992-f74d68cc-7fdc-417d-8df7-732eb49cc8a2.jpg",
+    "https://image2url.com/images/1760142261420-af7d0397-6b65-4c2b-b873-ed74cbecf265.jpg"
+  ],
+  "jobTitle": "Web Developer & Graphic Designer",
+  "occupation": [
+    {
+      "@type": "Occupation",
+      "name": "Web Developer",
+      "description": "Builds interactive, responsive, and user-friendly websites using HTML, CSS, JavaScript, React, and Node.js."
+    },
+    {
+      "@type": "Occupation",
+      "name": "Graphic Designer",
+      "description": "Creates digital art, logos, and brand visuals that reflect creativity and modern design principles."
+    }
+  ],
+  "description": "Ugochukwu Jonathan, also known as Ugo Young King, is a God-fearing Web Developer and Graphic Designer from Rivers State, Nigeria. He focuses on crafting modern digital experiences that blend technology and creativity.",
+  "missionStatement": "To inspire creativity through technology by building meaningful web experiences that empower people and businesses globally.",
+  "knowsAbout": [
+    "Web Development",
+    "Frontend Design",
+    "React",
+    "Node.js",
+    "UI/UX Design",
+    "Graphic Design",
+    "JavaScript",
+    "CSS",
+    "HTML",
+    "SEO Optimization"
+  ],
+  "knowsLanguage": [
+    {
+      "@type": "Language",
+      "name": "English",
+      "proficiencyLevel": "Fluent"
+    },
+    {
+      "@type": "Language",
+      "name": "Igbo",
+      "proficiencyLevel": "Native"
+    },
+    {
+      "@type": "Language",
+      "name": "Pidgin English",
+      "proficiencyLevel": "Conversational"
+    }
+  ],
+  "skills": [
+    { "name": "HTML5", "level": "Expert" },
+    { "name": "CSS3 & Tailwind", "level": "Advanced" },
+    { "name": "JavaScript", "level": "Intermediate" },
+    { "name": "React.js", "level": "Intermediate" },
+    { "name": "Node.js", "level": "Intermediate" },
+    { "name": "UI/UX Design", "level": "Advanced" },
+    { "name": "Graphic Design", "level": "Advanced" },
+    { "name": "SEO Optimization", "level": "Intermediate" }
+  ],
+  "values": [
+    "Creativity",
+    "Faith",
+    "Integrity",
+    "Innovation",
+    "Excellence",
+    "Continuous Learning"
+  ],
+  "alumniOf": {
+    "@type": "EducationalOrganization",
+    "name": "Riveers State University",
+    "url": "https://rsu.edu.ng"
+  },
+  "worksFor": {
+    "@type": "Organization",
+    "name": "Ugochukwu Dev",
+    "url": "https://ugoyoungking.github.io/portfolio/",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://image2url.com/images/1760142261420-af7d0397-6b65-4c2b-b873-ed74cbecf265.jpg"
+    }
+  },
+  "sameAs": [
+    "https://github.com/Ugoyoungking",
+    "https://linkedin.com/in/ugochukwu-jonathan067",
+    "https://www.facebook.com/share/1BCG5qD7mM/?mibextid=wwXIfr",
+    "https://wa.me/2349127714886"
+  ],
+  "mainEntityOfPage": "https://ugoyoungking.github.io/portfolio/",
+  "publisher": {
+    "@type": "Organization",
+    "name": "Ugochukwu Dev",
+    "url": "https://ugoyoungking.github.io/portfolio/"
+  },
+  "keywords": [
+    "Ugochukwu Jonathan",
+    "Ugo Young King",
+    "Web Developer in Nigeria",
+    "React Developer",
+    "Node.js Developer",
+    "Frontend Developer",
+    "Graphic Designer",
+    "Christian Web Developer",
+    "Nigerian Developer",
+    "Portfolio Website"
+  ],
+  "dateModified": "2025-10-11"
+}
