@@ -1,283 +1,109 @@
-/* ===========================
-   Global Reset & Base Styles
-=========================== */
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-
-html {
-  scroll-behavior: smooth;
-}
-
 body {
-  font-family: "Poppins", sans-serif;
-  background: #0f172a;
-  color: #f1f5f9;
-  line-height: 1.6;
+  font-family: 'Poppins', sans-serif;
+  margin: 0;
+  background: #f5f7fa;
+  color: #222;
+  line-height: 1.7;
 }
 
-/* ===========================
-   Navbar
-=========================== */
-.navbar {
-  background: #1e293b;
-  padding: 15px 0;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
-}
-
-.navbar .container {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  width: 90%;
-  max-width: 1200px;
-  margin: auto;
-}
-
-.logo a {
-  color: #38bdf8;
-  font-size: 1.5rem;
-  font-weight: 700;
-  text-decoration: none;
-}
-
-.logo span {
-  color: #facc15;
-}
-
-.nav-links {
-  list-style: none;
-  display: flex;
-  gap: 25px;
-}
-
-.nav-links a {
-  color: #f1f5f9;
-  text-decoration: none;
-  font-weight: 500;
-  transition: 0.3s ease;
-}
-
-.nav-links a:hover,
-.nav-links .active {
-  color: #38bdf8;
-}
-
-/* ===========================
-   Hero Section
-=========================== */
-.hero-section {
-  background: linear-gradient(135deg, #1e3a8a, #0f172a);
-  padding: 100px 0 70px;
+.dev-header {
+  background: linear-gradient(135deg, #0066ff, #00c6ff);
+  color: white;
   text-align: center;
-  color: #f8fafc;
+  padding: 3rem 1rem;
+  border-radius: 0 0 40px 40px;
 }
 
-.hero-section h2 {
+.dev-header h1 {
   font-size: 2.5rem;
-  font-weight: 700;
+  margin-bottom: 0.5rem;
 }
 
-.hero-section p {
-  margin-top: 10px;
+.tagline {
   font-size: 1.1rem;
-  color: #cbd5e1;
+  opacity: 0.9;
 }
 
-/* ===========================
-   Main Container
-=========================== */
-.container {
-  width: 90%;
-  max-width: 1100px;
-  margin: 50px auto;
+.dev-history {
+  max-width: 900px;
+  margin: 2rem auto;
+  padding: 0 1.5rem;
 }
 
-.section {
-  margin-bottom: 60px;
+.dev-history h2 {
+  color: #0056d6;
+  margin-bottom: 0.5rem;
+  border-bottom: 2px solid #0056d6;
+  display: inline-block;
+  padding-bottom: 5px;
 }
 
-h3 {
-  font-size: 1.8rem;
-  color: #38bdf8;
-  margin-bottom: 15px;
-  border-left: 4px solid #38bdf8;
-  padding-left: 10px;
-}
-
-/* ===========================
-   Profile Intro
-=========================== */
-.profile-intro {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  gap: 40px;
-  margin-bottom: 60px;
-}
-
-.profile-photo-box {
-  flex: 1 1 250px;
-  text-align: center;
-}
-
-.profile-photo {
-  width: 230px;
-  height: 230px;
-  border-radius: 50%;
-  border: 4px solid #38bdf8;
-  object-fit: cover;
-  transition: transform 0.4s ease;
-}
-
-.profile-photo:hover {
-  transform: scale(1.05);
-}
-
-.profile-text {
-  flex: 2 1 400px;
-}
-
-/* ===========================
-   Timeline
-=========================== */
-.timeline {
-  background: #1e293b;
-  padding: 25px 30px;
-  border-radius: 15px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+.bio p {
+  margin-bottom: 1.5rem;
 }
 
 .timeline ul {
   list-style: none;
+  padding-left: 0;
 }
 
 .timeline li {
-  padding: 12px 0;
-  border-left: 3px solid #38bdf8;
-  padding-left: 15px;
-  margin-left: 10px;
-  color: #e2e8f0;
+  background: white;
+  margin: 0.8rem 0;
+  padding: 1rem;
+  border-left: 5px solid #00c6ff;
+  border-radius: 8px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
 }
 
-.timeline li strong {
-  color: #facc15;
-}
-
-/* ===========================
-   Skills
-=========================== */
-.skills {
-  background: #0f172a;
-  border: 1px solid #1e3a8a;
-  padding: 25px 30px;
-  border-radius: 15px;
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
-}
-
-.skill-list {
-  list-style: none;
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
-  gap: 15px;
-}
-
-.skill-list li {
-  background: #1e293b;
-  padding: 12px;
-  border-radius: 10px;
-  text-align: center;
-  transition: background 0.3s ease;
-}
-
-.skill-list li:hover {
-  background: #334155;
-}
-
-/* ===========================
-   Faith Section
-=========================== */
-.faith {
-  background: #1e293b;
-  padding: 25px 30px;
-  border-radius: 15px;
-  margin-top: 40px;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
-}
-
-.faith p {
-  font-size: 1rem;
-  color: #cbd5e1;
-  line-height: 1.8;
-}
-
-/* ===========================
-   Contact
-=========================== */
-.contact {
-  margin-top: 50px;
-}
-
-.contact p {
-  margin: 10px 0;
-  font-size: 1rem;
-  color: #e2e8f0;
-}
-
-.contact a {
-  color: #38bdf8;
+.timeline a {
+  color: #0056d6;
   text-decoration: none;
 }
 
-.contact a:hover {
-  color: #facc15;
+.skills-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6rem;
+  margin-top: 1rem;
 }
 
-/* ===========================
-   Footer
-=========================== */
-.footer {
-  background: #1e293b;
-  padding: 20px;
-  text-align: center;
-  color: #94a3b8;
+.skills-list span {
+  background: #0056d6;
+  color: white;
+  padding: 0.5rem 1rem;
+  border-radius: 30px;
   font-size: 0.9rem;
-  margin-top: 80px;
-  border-top: 2px solid #38bdf8;
 }
 
-.footer p {
-  margin: 0;
+.contact {
+  text-align: center;
+  margin-top: 3rem;
 }
 
-/* ===========================
-   Responsive Design
-=========================== */
-@media (max-width: 768px) {
-  .navbar .container {
-    flex-direction: column;
-    gap: 15px;
-  }
+.icons {
+  display: flex;
+  justify-content: center;
+  gap: 1.5rem;
+  margin-top: 1rem;
+}
 
-  .nav-links {
-    flex-wrap: wrap;
-    justify-content: center;
-  }
+.icons a {
+  color: #0056d6;
+  font-size: 1.8rem;
+  transition: 0.3s;
+}
 
-  .hero-section h2 {
-    font-size: 2rem;
-  }
+.icons a:hover {
+  color: #00c6ff;
+  transform: scale(1.1);
+}
 
-  .profile-intro {
-    flex-direction: column;
-    text-align: center;
-  }
-
-  .timeline,
-  .skills,
-  .faith {
-    padding: 20px;
-  }
+.footer {
+  text-align: center;
+  padding: 1.5rem;
+  background: #001f3f;
+  color: white;
+  margin-top: 3rem;
+  border-radius: 40px 40px 0 0;
 }
