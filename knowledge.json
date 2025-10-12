@@ -1,0 +1,67 @@
+{
+  "@context": "https://schema.org",
+  "@type": "Person",
+  "@id": "https://ugoyoungking.github.io/portfolio#person",
+  "name": "Ugochukwu Jonathan",
+  "alternateName": "Ugoyoungking",
+  "description": "Ugochukwu Jonathan is a passionate web developer and graphic designer from Abuja, Nigeria, skilled in building interactive and responsive websites using modern technologies. He provides freelance design services worldwide under Swift Tech.",
+  "jobTitle": "Web Developer & Graphic Designer",
+  "birthPlace": {
+    "@type": "Place",
+    "name": "Enugu, Nigeria"
+  },
+  "homeLocation": {
+    "@type": "Place",
+    "name": "Abuja, Nigeria"
+  },
+  "nationality": "Nigerian",
+  "religion": "Christianity",
+  "url": "https://ugoyoungking.github.io/portfolio/",
+  "worksFor": {
+    "@type": "Organization",
+    "name": "Swift Tech",
+    "url": "https://ugoyoungking.github.io/portfolio/"
+  },
+  "sameAs": [
+    "https://github.com/Ugoyoungking",
+    "https://linkedin.com/in/ugochukwu-jonathan067",
+    "https://www.facebook.com/share/1BCG5qD7mM/?mibextid=wwXIfr",
+    "https://wa.me/2349127714886",
+    "https://truelancer.com/freelancer/ugochukwujonathan"
+  ],
+  "knowsAbout": [
+    "Frontend Development",
+    "React.js",
+    "Node.js",
+    "UI/UX Design",
+    "Graphic Design",
+    "Responsive Web Design"
+  ],
+  "hasOccupation": [
+    {
+      "@type": "Occupation",
+      "name": "Full-Stack Web Developer",
+      "skills": ["HTML", "CSS", "JavaScript", "React", "Node.js", "MongoDB"]
+    },
+    {
+      "@type": "Occupation",
+      "name": "Graphic Designer",
+      "skills": ["Branding", "UI/UX Design", "Adobe Photoshop", "Illustrator"]
+    }
+  ],
+  "hasPart": [
+    {
+      "@type": "WebPage",
+      "name": "Development History - Ugochukwu Jonathan",
+      "url": "https://ugoyoungking.github.io/portfolio/dev-history.html"
+    },
+    {
+      "@type": "WebPage",
+      "name": "Portfolio Projects - Ugochukwu Jonathan",
+      "url": "https://ugoyoungking.github.io/portfolio/"
+    }
+  ],
+  "mainEntityOfPage": "https://ugoyoungking.github.io/portfolio/",
+  "datePublished": "2025-10-11T12:00:00+01:00",
+  "dateModified": "2025-10-11T12:30:00+01:00"
+}
