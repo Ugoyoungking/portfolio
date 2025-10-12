@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset
   xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
-  xmlns:image="http://www.google.com/schemas/sitemap-image/1.1"
->
+  xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
+
+  <!-- Portfolio Home Page -->
   <url>
     <loc>https://ugoyoungking.github.io/portfolio/</loc>
     <lastmod>2025-10-11</lastmod>
     <priority>1.0</priority>
-
     <image:image>
       <image:loc>https://image2url.com/images/1760142087082-0d9360e4-2d41-4459-a0a1-135afa56a7f7.jpg</image:loc>
       <image:caption>Ugochukwu Portfolio Logo</image:caption>
@@ -22,4 +22,13 @@
       <image:loc>https://image2url.com/images/1760142261420-af7d0397-6b65-4c2b-b873-ed74cbecf265.jpg</image:loc>
     </image:image>
   </url>
+
+  <!-- Dev History Page -->
+  <url>
+    <loc>https://ugoyoungking.github.io/portfolio/dev-history.html</loc>
+    <lastmod>2025-10-11</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
 </urlset>
