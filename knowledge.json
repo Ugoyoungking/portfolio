@@ -1,67 +1,138 @@
 {
   "@context": "https://schema.org",
-  "@type": "Person",
-  "@id": "https://ugoyoungking.github.io/portfolio#person",
-  "name": "Ugochukwu Jonathan",
-  "alternateName": "Ugoyoungking",
-  "description": "Ugochukwu Jonathan is a passionate web developer and graphic designer from Abuja, Nigeria, skilled in building interactive and responsive websites using modern technologies. He provides freelance design services worldwide under Swift Tech.",
-  "jobTitle": "Web Developer & Graphic Designer",
-  "birthPlace": {
-    "@type": "Place",
-    "name": "Enugu, Nigeria"
-  },
-  "homeLocation": {
-    "@type": "Place",
-    "name": "Rivers, Nigeria"
-  },
-  "nationality": "Nigerian",
-  "religion": "Christianity",
-  "url": "https://ugoyoungking.github.io/portfolio/",
-  "worksFor": {
-    "@type": "Organization",
-    "name": "Swift Tech",
-    "url": "https://ugoyoungking.github.io/portfolio/"
-  },
-  "sameAs": [
-    "https://github.com/Ugoyoungking",
-    "https://linkedin.com/in/ugochukwu-jonathan067",
-    "https://www.facebook.com/share/1BCG5qD7mM/?mibextid=wwXIfr",
-    "https://wa.me/2349127714886",
-    "https://www.truelancer.com/freelancer/tlusera2eae11"
-  ],
-  "knowsAbout": [
-    "Frontend Development",
-    "React.js",
-    "Node.js",
-    "UI/UX Design",
-    "Graphic Design",
-    "Responsive Web Design"
-  ],
-  "hasOccupation": [
+  "@graph": [
     {
-      "@type": "Occupation",
-      "name": "Full-Stack Web Developer",
-      "skills": ["HTML", "CSS", "JavaScript", "React", "Node.js", "MongoDB"]
+      "@type": "Person",
+      "@id": "https://ugoyoungking.github.io/portfolio#person",
+      "name": "Ugochukwu Jonathan",
+      "alternateName": "Ugoyoungking",
+      "description": "Ugochukwu Jonathan is a Nigerian web developer and graphic designer known for building responsive, interactive web applications and providing global freelance design services under Swift Tech.",
+      "jobTitle": "Web Developer & Graphic Designer",
+      "image": {
+        "@type": "ImageObject",
+        "@id": "https://ugoyoungking.github.io/portfolio#profileImage",
+        "url": "https://image2url.com/images/1759256290632-55f4e88b-aa2c-4f91-afd4-29f8303e12a0.jpg",
+        "height": 800,
+        "width": 800,
+        "caption": "Profile photo of Ugochukwu Jonathan (Ugoyoungking)"
+      },
+      "email": "mailto:ugochukwujonathan067@gmail.com",
+      "telephone": "+2349127714886",
+      "birthPlace": {
+        "@type": "Place",
+        "name": "Enugu, Nigeria"
+      },
+      "parent": {
+        "@type": "Person",
+        "name": "Favour Chinonso Jonathan"
+      },
+      "homeLocation": {
+        "@type": "Place",
+        "name": "Rivers State, Nigeria"
+      },
+      "nationality": "Nigerian",
+      "url": "https://ugoyoungking.github.io/portfolio/",
+      "worksFor": {
+        "@type": "Organization",
+        "@id": "https://ugoyoungking.github.io/portfolio#organization"
+      },
+      "sameAs": [
+        "https://github.com/Ugoyoungking",
+        "https://linkedin.com/in/ugochukwu-jonathan067",
+        "https://www.facebook.com/share/1BCG5qD7mM/?mibextid=wwXIfr",
+        "https://wa.me/2349127714886",
+        "https://www.truelancer.com/freelancer/tlusera2eae11",
+        "https://ugoyoungking.github.io/portfolio/"
+      ],
+      "knowsAbout": [
+        "Frontend Development",
+        "React.js",
+        "Node.js",
+        "UI/UX Design",
+        "Graphic Design",
+        "Responsive Web Design",
+        "Branding",
+        "Web Application Development",
+        "Digital Design"
+      ],
+      "hasOccupation": [
+        {
+          "@type": "Occupation",
+          "name": "Full-Stack Web Developer",
+          "skills": [
+            "HTML",
+            "CSS",
+            "JavaScript",
+            "React",
+            "Node.js",
+            "MongoDB",
+            "API Integration"
+          ]
+        },
+        {
+          "@type": "Occupation",
+          "name": "Graphic Designer",
+          "skills": [
+            "Branding",
+            "UI/UX Design",
+            "Adobe Photoshop",
+            "Illustrator",
+            "Digital Art"
+          ]
+        }
+      ],
+      "mainEntityOfPage": "https://ugoyoungking.github.io/portfolio/"
     },
+
     {
-      "@type": "Occupation",
-      "name": "Graphic Designer",
-      "skills": ["Branding", "UI/UX Design", "Adobe Photoshop", "Illustrator"]
-    }
-  ],
-  "hasPart": [
+      "@type": "Organization",
+      "@id": "https://ugoyoungking.github.io/portfolio#organization",
+      "name": "Swift Tech",
+      "url": "https://ugoyoungking.github.io/portfolio/",
+      "logo": {
+        "@type": "ImageObject",
+        "@id": "https://ugoyoungking.github.io/portfolio#logo",
+        "url": "https://image2url.com/images/1760142261420-af7d0397-6b65-4c2b-b873-ed74cbecf265.jpg",
+        "width": 512,
+        "height": 512
+      },
+      "founder": {
+        "@id": "https://ugoyoungking.github.io/portfolio#person"
+      },
+      "sameAs": [
+        "https://github.com/Ugoyoungking",
+        "https://linkedin.com/in/ugochukwu-jonathan067",
+        "https://www.facebook.com/share/1BCG5qD7mM/?mibextid=wwXIfr"
+      ]
+    },
+
+    {
+      "@type": "WebSite",
+      "@id": "https://ugoyoungking.github.io/portfolio#website",
+      "url": "https://ugoyoungking.github.io/portfolio/",
+      "name": "Ugochukwu Jonathan (Ugoyoungking) Portfolio",
+      "publisher": {
+        "@id": "https://ugoyoungking.github.io/portfolio#organization"
+      },
+      "inLanguage": "en",
+      "potentialAction": {
+        "@type": "SearchAction",
+        "target": "https://ugoyoungking.github.io/portfolio/?q={search_term_string}",
+        "query-input": "required name=search_term_string"
+      }
+    },
+
     {
       "@type": "WebPage",
-      "name": "Development History - Ugochukwu Jonathan",
-      "url": "https://ugoyoungking.github.io/portfolio/dev-history.html"
-    },
-    {
-      "@type": "WebPage",
-      "name": "Portfolio Projects - Ugochukwu Jonathan",
-      "url": "https://ugoyoungking.github.io/portfolio/"
+      "@id": "https://ugoyoungking.github.io/portfolio#webpage",
+      "url": "https://ugoyoungking.github.io/portfolio/",
+      "name": "Official Portfolio — Ugochukwu Jonathan",
+      "isPartOf": {
+        "@id": "https://ugoyoungking.github.io/portfolio#website"
+      },
+      "about": {
+        "@id": "https://ugoyoungking.github.io/portfolio#person"
+      }
     }
-  ],
-  "mainEntityOfPage": "https://ugoyoungking.github.io/portfolio/",
-  "datePublished": "2025-10-11T12:00:00+01:00",
-  "dateModified": "2025-10-11T12:30:00+01:00"
+  ]
 }
