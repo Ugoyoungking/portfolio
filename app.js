@@ -1,3 +1,4 @@
+/* global AOS, Typed, THREE, emailjs */
 AOS.init({ duration: 1000, once: true });
 
 new Typed('.typed-text', {
