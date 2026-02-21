@@ -1,5 +1,5 @@
 /* global AOS, Typed, THREE, emailjs */
-AOS.init({ duration: 1000, once: true });
+AOS.init({duration:1000});
 
 new Typed('.typed-text', {
   strings: ['Frontend Developer', 'Backend Developer', 'Web Designer', 'Graphic Designer', 'Problem Solver'],
@@ -9,18 +9,10 @@ new Typed('.typed-text', {
 });
 
 const toggleDark = document.getElementById('toggle-dark');
-const storedTheme = localStorage.getItem('theme');
-if (storedTheme === 'dark') {
-  document.body.classList.add('dark');
-  if (toggleDark) toggleDark.textContent = '☀️ Light Mode';
-}
-
 if (toggleDark) {
   toggleDark.addEventListener('click', () => {
     document.body.classList.toggle('dark');
-    const isDark = document.body.classList.contains('dark');
-    toggleDark.textContent = isDark ? '☀️ Light Mode' : '🌙 Dark Mode';
-    localStorage.setItem('theme', isDark ? 'dark' : 'light');
+    toggleDark.textContent = document.body.classList.contains('dark') ? '☀️ Light Mode' : '🌙 Dark Mode';
   });
 }
 
