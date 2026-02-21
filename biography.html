@@ -30,7 +30,7 @@
     "founderOf": {
       "@type": "Organization",
       "name": "UGO AI Studio",
-      "url": "https://ugoai-hub.vercel.app"
+      "url": "https://ugoai-studio.vercel.app/chat"
     },
     "birthPlace": {
       "@type": "Place",
@@ -51,20 +51,25 @@
     ],
     "sameAs": [
       "https://github.com/Ugoyoungking",
-      "https://ugoyoungking.github.io/portfolio/"
+      "https://ugoyoungking.github.io/portfolio/",
+      "https://www.linkedin.com/in/ugochukwu-jonathan067"
     ],
     "image": "https://image2url.com/images/1759256290632-55f4e88b-aa2c-4f91-afd4-29f8303e12a0.jpg"
   }
   </script>
 
-  <!-- Advanced Styling -->
   <style>
     :root {
       --primary: #0f172a;
       --secondary: #334155;
       --accent: #2563eb;
       --bg: #f8fafc;
+      --card: #ffffff;
+      --muted: #64748b;
+      --line: #e2e8f0;
     }
+
+    * { box-sizing: border-box; }
 
     body {
       font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell;
@@ -72,90 +77,245 @@
       color: var(--secondary);
       line-height: 1.8;
       margin: 0;
-      padding: 0;
+    }
+
+    .topbar {
+      position: sticky;
+      top: 0;
+      z-index: 20;
+      background: rgba(248, 250, 252, 0.95);
+      backdrop-filter: blur(8px);
+      border-bottom: 1px solid var(--line);
+    }
+
+    .topbar-inner {
+      max-width: 1060px;
+      margin: 0 auto;
+      padding: 12px 24px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+    }
+
+    .topbar a {
+      color: var(--secondary);
+      text-decoration: none;
+      font-weight: 600;
+    }
+
+    .topbar .cta {
+      color: #fff;
+      background: var(--accent);
+      border-radius: 999px;
+      padding: 8px 14px;
     }
 
     .container {
-      max-width: 960px;
+      max-width: 1060px;
       margin: auto;
-      padding: 48px 24px;
+      padding: 40px 24px 64px;
     }
 
-    header {
-      border-left: 4px solid var(--accent);
-      padding-left: 20px;
-      margin-bottom: 48px;
+    .hero {
+      display: grid;
+      grid-template-columns: auto 1fr;
+      gap: 22px;
+      align-items: center;
+      margin-bottom: 28px;
+      background: var(--card);
+      border: 1px solid var(--line);
+      border-radius: 18px;
+      padding: 22px;
+    }
+
+    .hero img {
+      width: 140px;
+      height: 140px;
+      border-radius: 9999px;
+      object-fit: cover;
+      border: 4px solid #dbeafe;
     }
 
     h1 {
       color: var(--primary);
-      font-size: 2.5rem;
-      margin-bottom: 8px;
+      font-size: 2.2rem;
+      margin: 0 0 8px;
+      line-height: 1.2;
+    }
+
+    .tagline {
+      font-weight: 600;
+      color: var(--accent);
+      margin: 0;
+    }
+
+    .lead {
+      margin-top: 12px;
+      color: var(--secondary);
+    }
+
+    .stats {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(120px, 1fr));
+      gap: 12px;
+      margin: 24px 0 34px;
+    }
+
+    .stat {
+      background: var(--card);
+      border: 1px solid var(--line);
+      border-radius: 14px;
+      padding: 14px;
+    }
+
+    .stat strong {
+      display: block;
+      color: var(--primary);
+      font-size: 1.2rem;
+      line-height: 1.3;
+    }
+
+    .stat span {
+      color: var(--muted);
+      font-size: 0.92rem;
+    }
+
+    section {
+      margin-bottom: 24px;
+      background: var(--card);
+      border: 1px solid var(--line);
+      border-radius: 16px;
+      padding: 22px;
     }
 
     h2 {
       color: var(--primary);
-      margin-top: 48px;
-      font-size: 1.6rem;
-    }
-
-    .tagline {
-      font-weight: 500;
-      color: var(--accent);
-    }
-
-    section {
-      margin-bottom: 32px;
+      margin: 0 0 10px;
+      font-size: 1.35rem;
     }
 
     ul {
       padding-left: 20px;
+      margin: 0;
+    }
+
+    .timeline {
+      display: grid;
+      gap: 12px;
+    }
+
+    .timeline-item {
+      border-left: 3px solid #bfdbfe;
+      padding-left: 12px;
+    }
+
+    .projects a {
+      word-break: break-word;
+    }
+
+    .links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 8px;
+    }
+
+    .links a {
+      text-decoration: none;
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      padding: 8px 14px;
+      color: var(--secondary);
+      font-weight: 600;
+    }
+
+    .links a.primary {
+      background: var(--accent);
+      color: #fff;
+      border-color: var(--accent);
     }
 
     footer {
-      margin-top: 64px;
-      font-size: 0.9rem;
-      color: #64748b;
-      border-top: 1px solid #e2e8f0;
-      padding-top: 24px;
+      margin-top: 26px;
+      font-size: 0.92rem;
+      color: var(--muted);
+      border-top: 1px solid var(--line);
+      padding-top: 20px;
+      display: flex;
+      justify-content: space-between;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+
+    @media (max-width: 800px) {
+      .hero {
+        grid-template-columns: 1fr;
+        text-align: center;
+      }
+
+      .hero img { margin: 0 auto; }
+      .stats { grid-template-columns: repeat(2, minmax(120px, 1fr)); }
     }
   </style>
 </head>
 <body>
+  <nav class="topbar">
+    <div class="topbar-inner">
+      <a href="index.html">← Back to Portfolio</a>
+      <a class="cta" href="mailto:ugochukwujonathan067@gmail.com">Contact</a>
+    </div>
+  </nav>
 
   <main class="container">
-    <header>
-      <img src="https://image2url.com/images/1759256290632-55f4e88b-aa2c-4f91-afd4-29f8303e12a0.jpg" alt="Ugochukwu Jonathan portrait" style="width:140px;height:140px;border-radius:9999px;object-fit:cover;margin-bottom:16px;" />
-      <h1>Ugochukwu Jonathan</h1>
-      <p class="tagline">Full-Stack Web Developer • AI Product Builder • Founder of UGO AI Studio</p>
+    <header class="hero">
+      <img src="https://image2url.com/images/1759256290632-55f4e88b-aa2c-4f91-afd4-29f8303e12a0.jpg" alt="Ugochukwu Jonathan portrait" />
+      <div>
+        <h1>Ugochukwu Jonathan</h1>
+        <p class="tagline">Full-Stack Web Developer • AI Product Builder • Founder of UGO AI Studio</p>
+        <p class="lead">
+          Ugochukwu Jonathan (known professionally as <strong>Ugoyoungking</strong>) is a Nigerian engineer and entrepreneur focused on building useful, scalable, and modern digital products powered by AI and web technologies.
+        </p>
+      </div>
     </header>
+
+    <section class="stats" aria-label="career highlights">
+      <article class="stat"><strong>2022</strong><span>Started web development journey</span></article>
+      <article class="stat"><strong>2+</strong><span>Public products launched</span></article>
+      <article class="stat"><strong>Full-Stack</strong><span>Frontend + backend execution</span></article>
+      <article class="stat"><strong>AI-Driven</strong><span>Automation and productivity tools</span></article>
+    </section>
 
     <section>
       <h2>Overview</h2>
-      <p><strong>Ugochukwu Jonathan</strong> is a Nigerian full-stack web developer, AI product builder, and technology entrepreneur, professionally known as <strong>Ugoyoungking</strong>. He is the founder and sole creator of <strong>UGO AI Studio</strong>, an AI-powered platform focused on automation, digital productivity, and modern software systems built for a global audience.</p>
+      <p><strong>Ugochukwu Jonathan</strong> is a Nigerian full-stack web developer, AI product builder, and technology entrepreneur. He is the founder and sole creator of <strong>UGO AI Studio</strong>, an AI-powered platform focused on automation, digital productivity, and practical software systems for a global audience.</p>
     </section>
 
     <section>
       <h2>Early Life and Background</h2>
-      <p>Ugochukwu Jonathan originates from <strong>Isi-Uzo Local Government Area of Enugu State, Nigeria</strong>. Raised with strong values centered on faith, discipline, and entrepreneurship, he was influenced by his mother, <strong>Favour Chinonso Jonathan</strong>, a widely recognized entrepreneur in the automobile and lubricants industry.</p>
+      <p>He originates from <strong>Isi-Uzo Local Government Area of Enugu State, Nigeria</strong>. Raised with values centered on faith, discipline, and entrepreneurship, he was influenced by his mother, <strong>Favour Chinonso Jonathan</strong>, an entrepreneur in the automobile and lubricants industry.</p>
     </section>
 
     <section>
-      <h2>Career</h2>
-      <p>Beginning as a web developer, Ugochukwu expanded into full-stack engineering and AI-powered systems. He built and deployed multiple public-facing platforms, establishing a strong digital footprint under the Ugoyoungking identity.</p>
-      <p>He later founded <strong>UGO AI Studio</strong>, independently designing and engineering the platform as its sole creator. The studio delivers AI-assisted tools for application development, workflow automation, content generation, and intelligent productivity systems.</p>
+      <h2>Career Timeline</h2>
+      <div class="timeline">
+        <div class="timeline-item"><strong>2022:</strong> Began with HTML, CSS, and JavaScript fundamentals.</div>
+        <div class="timeline-item"><strong>2023:</strong> Expanded into advanced frontend projects and public profile building.</div>
+        <div class="timeline-item"><strong>2024:</strong> Moved into backend systems, APIs, and product architecture.</div>
+        <div class="timeline-item"><strong>2025+:</strong> Building AI-assisted tools and scalable platforms through UGO AI Studio.</div>
+      </div>
     </section>
 
-    <section>
+    <section class="projects">
       <h2>Notable Projects</h2>
       <ul>
         <li>
-          <strong>UGO AI Studio</strong> — An AI-powered platform for automation, content generation, and productivity tools.
+          <strong>UGO AI Studio</strong> — AI-powered tools for content generation, automation, and productivity.
           <br />
           <a href="https://ugoai-studio.vercel.app/chat" target="_blank" rel="noopener">https://ugoai-studio.vercel.app/chat</a>
         </li>
         <li>
-          <strong>WaChat App</strong> — A modern real-time web chat application showcasing frontend, backend, and deployment skills.
+          <strong>WaChat App</strong> — A modern real-time web chat app demonstrating frontend, backend, and deployment capabilities.
           <br />
           <a href="https://wachat-app.vercel.app/" target="_blank" rel="noopener">https://wachat-app.vercel.app/</a>
         </li>
@@ -165,33 +325,33 @@
     <section>
       <h2>Technical Expertise</h2>
       <ul>
-        <li>Frontend Engineering: HTML5, CSS3, JavaScript, React.js, Next.js</li>
-        <li>Backend Systems: Node.js, REST APIs, authentication & authorization</li>
-        <li>Cloud & Databases: Firebase, serverless infrastructure</li>
+        <li>Frontend: HTML5, CSS3, JavaScript, React.js, Next.js</li>
+        <li>Backend: Node.js, REST APIs, authentication and authorization</li>
+        <li>Cloud & Data: Firebase and serverless infrastructure</li>
         <li>AI & Automation: AI integrations, prompt systems, workflow automation</li>
-        <li>Product Engineering: SaaS architecture, scalable MVPs</li>
+        <li>Product Engineering: MVP architecture, roadmap-focused delivery</li>
       </ul>
     </section>
 
     <section>
-      <h2>Faith and Values</h2>
-      <p>Faith plays a foundational role in Ugochukwu Jonathan’s life and professional journey. He openly identifies as God-fearing and is guided by integrity, excellence, and purpose-driven innovation.</p>
+      <h2>Faith, Values, and Vision</h2>
+      <p>Faith plays a foundational role in Ugochukwu Jonathan’s life and work. He is guided by integrity, excellence, and purpose-driven innovation. His long-term vision is to rank among top African developers and AI founders by building globally impactful products from Nigeria.</p>
     </section>
 
     <section>
-      <h2>Personal Life</h2>
-      <p>He currently resides in <strong>Port Harcourt, Rivers State, Nigeria</strong>, where he continues building scalable AI platforms and contributing to Africa’s growing technology ecosystem.</p>
-    </section>
-
-    <section>
-      <h2>Vision</h2>
-      <p>Ugochukwu Jonathan’s long-term vision is to be recognized among the <strong>top African developers and AI technology founders</strong>, creating globally impactful digital platforms while strengthening Africa’s representation in global technology.</p>
+      <h2>Connect</h2>
+      <div class="links">
+        <a class="primary" href="mailto:ugochukwujonathan067@gmail.com">Email</a>
+        <a href="https://github.com/Ugoyoungking" target="_blank" rel="noopener">GitHub</a>
+        <a href="https://www.linkedin.com/in/ugochukwu-jonathan067" target="_blank" rel="noopener">LinkedIn</a>
+        <a href="index.html">Portfolio</a>
+      </div>
     </section>
 
     <footer>
-      <p>© Ugochukwu Jonathan. All rights reserved.</p>
+      <p>© 2026 Ugochukwu Jonathan. All rights reserved.</p>
+      <p>Based in Port Harcourt, Rivers State, Nigeria.</p>
     </footer>
   </main>
-
 </body>
 </html>
