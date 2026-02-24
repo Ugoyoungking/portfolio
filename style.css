@@ -166,6 +166,12 @@ body.dark .projects{background:#2f3640}
 .project img{width:100%;height:180px;object-fit:cover}
 .project h4{margin:15px;color:#34495e}
 .project p{margin:0 15px 15px;font-size:.9rem}
+
+.project-sync-note { margin: 4px 0 20px; font-size: .92rem; color: #5b6d80; }
+.repo-meta { display: flex; justify-content: center; gap: 12px; margin: 0 15px 12px; font-size: .82rem; color: #5f6f82; }
+.project-link { display: inline-block; margin: 0 15px 18px; padding: 8px 12px; background: #2563eb; color: #fff; text-decoration: none; border-radius: 8px; font-size: .88rem; }
+.project-link:hover { background: #1d4ed8; }
+body.dark .project-sync-note, body.dark .repo-meta { color: #c4d1df; }
 .project-view-btn {
   background: #2980b9;
   color: #fff;

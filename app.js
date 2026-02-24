@@ -102,11 +102,79 @@ const projectGrid = document.getElementById('projectGrid');
 const searchInput = document.getElementById('projectSearch');
 const projectSort = document.getElementById('projectSort');
 const projectCount = document.getElementById('projectCount');
+const projectSyncNote = document.getElementById('projectSyncNote');
+const GITHUB_USERNAME = 'Ugoyoungking';
 
 const updateProjectCount = () => {
   if (!projectCount || !projectGrid) return;
   const visibleProjects = [...projectGrid.querySelectorAll('.project')].filter((project) => project.style.display !== 'none').length;
   projectCount.textContent = `Showing ${visibleProjects} project${visibleProjects === 1 ? '' : 's'}`;
+};
+
+const applyProjectCardEffects = (card) => {
+  card.addEventListener('mousemove', (event) => {
+    const rect = card.getBoundingClientRect();
+    const x = event.clientX - rect.left;
+    const y = event.clientY - rect.top;
+    const rotateY = ((x / rect.width) - 0.5) * 10;
+    const rotateX = ((y / rect.height) - 0.5) * -10;
+    card.style.transform = `rotateX(${rotateX}deg) rotateY(${rotateY}deg) translateY(-6px)`;
+  });
+
+  card.addEventListener('mouseleave', () => {
+    card.style.transform = 'rotateX(0deg) rotateY(0deg) translateY(0px)';
+  });
+};
+
+const createRepoCard = (repo) => {
+  const card = document.createElement('article');
+  card.className = 'project github-project';
+  card.dataset.title = repo.name;
+  card.dataset.updated = repo.updated_at;
+  card.innerHTML = `
+    <img src="${repo.owner.avatar_url}" alt="${repo.name} repository icon">
+    <h4>${repo.name}</h4>
+    <p>${repo.description || 'No description provided yet.'}</p>
+    <div class="repo-meta">
+      <span>${repo.language || 'Mixed'}</span>
+      <span>★ ${repo.stargazers_count}</span>
+    </div>
+    <a class="project-link" href="${repo.html_url}" target="_blank" rel="noopener noreferrer">View Repository</a>
+  `;
+  applyProjectCardEffects(card);
+  return card;
+};
+
+const fetchAndRenderGitHubRepos = async () => {
+  if (!projectGrid) return;
+
+  try {
+    const response = await fetch(`https://api.github.com/users/${GITHUB_USERNAME}/repos?per_page=100&sort=updated`);
+    if (!response.ok) throw new Error(`GitHub request failed (${response.status})`);
+
+    const repos = await response.json();
+    const sortedRepos = repos
+      .filter((repo) => !repo.fork)
+      .sort((a, b) => new Date(b.updated_at) - new Date(a.updated_at));
+
+    projectGrid.innerHTML = '';
+    sortedRepos.forEach((repo) => {
+      projectGrid.appendChild(createRepoCard(repo));
+    });
+
+    if (projectSyncNote) {
+      projectSyncNote.textContent = `Live from GitHub: ${sortedRepos.length} public repositories loaded.`;
+    }
+
+    updateProjectCount();
+  } catch (error) {
+    if (projectSyncNote) {
+      projectSyncNote.textContent = 'Could not load GitHub repositories right now. Showing local project samples instead.';
+    }
+    console.error(error);
+    projectGrid.querySelectorAll('.project').forEach((card) => applyProjectCardEffects(card));
+    updateProjectCount();
+  }
 };
 
 if (searchInput && projectGrid) {
@@ -134,10 +202,12 @@ if (projectSort && projectGrid) {
     });
 
     cards.forEach((card) => projectGrid.appendChild(card));
+    updateProjectCount();
   });
 }
 
 updateProjectCount();
+fetchAndRenderGitHubRepos();
 
 const scrollBtn = document.getElementById('scrollTopBtn');
 if (scrollBtn) {
@@ -210,22 +280,6 @@ if (statNumbers.length) {
 
   statNumbers.forEach((num) => observer.observe(num));
 }
-
-const projectCards = document.querySelectorAll('.project');
-projectCards.forEach((card) => {
-  card.addEventListener('mousemove', (event) => {
-    const rect = card.getBoundingClientRect();
-    const x = event.clientX - rect.left;
-    const y = event.clientY - rect.top;
-    const rotateY = ((x / rect.width) - 0.5) * 10;
-    const rotateX = ((y / rect.height) - 0.5) * -10;
-    card.style.transform = `rotateX(${rotateX}deg) rotateY(${rotateY}deg) translateY(-6px)`;
-  });
-
-  card.addEventListener('mouseleave', () => {
-    card.style.transform = 'rotateX(0deg) rotateY(0deg) translateY(0px)';
-  });
-});
 
 const heroCanvas = document.getElementById('hero3d');
 if (heroCanvas && typeof THREE !== 'undefined') {
