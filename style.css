@@ -285,3 +285,62 @@ body.dark .stat-card p { color: #b4c2d3; }
   .hero { padding: 85px 16px; }
   .quick-stats { padding-top: 18px; }
 }
+
+#preloader {
+  position: fixed;
+  inset: 0;
+  background: #0f172a;
+  color: #fff;
+  display: grid;
+  place-items: center;
+  z-index: 5000;
+  transition: opacity .5s ease, visibility .5s ease;
+}
+#preloader.hidden { opacity: 0; visibility: hidden; }
+.loader-orbit {
+  width: 64px; height: 64px; border-radius: 50%;
+  border: 4px solid rgba(255,255,255,.3);
+  border-top-color: #1abc9c;
+  animation: spin 1s linear infinite;
+  margin: 0 auto 10px;
+}
+@keyframes spin { to { transform: rotate(360deg);} }
+
+.filter-bar { display:flex; flex-wrap:wrap; justify-content:center; align-items:center; gap:10px; }
+#projectSort { padding:8px 10px; border:2px solid #bdc3c7; border-radius:5px; }
+
+.services { padding: 70px 20px; background: #ffffff; text-align: center; }
+.services-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(220px,1fr)); gap:16px; margin-top:20px; }
+.service-card { background:#f8fbff; border:1px solid #d8e6f8; border-radius:12px; padding:18px; box-shadow:0 8px 18px rgba(0,0,0,.07); transition:transform .3s; }
+.service-card:hover { transform: translateY(-6px); }
+body.dark .services { background:#2f3640; }
+body.dark .service-card { background:#252b33; border-color:#3a4452; }
+
+.testimonial-slider { position: relative; min-height: 120px; }
+.testimonial { display:none; }
+.testimonial.active { display:block; animation: fadeSlide .4s ease; }
+.testimonial-controls { display:flex; justify-content:center; gap:10px; margin-top:12px; }
+.testimonial-controls button { border:none; background:#2980b9; color:#fff; border-radius:999px; width:40px; height:40px; cursor:pointer; }
+@keyframes fadeSlide { from {opacity:0; transform:translateY(8px);} to {opacity:1; transform:translateY(0);} }
+
+.social-dock {
+  position: fixed;
+  left: 14px;
+  bottom: 90px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  z-index: 1300;
+}
+.social-dock a {
+  background:#1f2937;
+  color:#fff;
+  text-decoration:none;
+  padding:8px 10px;
+  border-radius:8px;
+  font-size:.82rem;
+  box-shadow:0 8px 16px rgba(0,0,0,.2);
+}
+.social-dock a:hover { background:#2563eb; }
+
+@media (max-width:768px){ .social-dock{left:auto; right:10px; bottom:80px;} }

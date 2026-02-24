@@ -162,6 +162,7 @@
 </head>
 
 <body>
+  <div id="preloader"><div class="loader-orbit"></div><p>Loading experience...</p></div>
   <!-- ✅ Hidden Images (for Google Indexing Only) -->
   <div style="display:none;">
     <img src="https://image2url.com/images/1760142087082-0d9360e4-2d41-4459-a0a1-135afa56a7f7.jpg" alt="Ugochukwu Web Developer Portrait">
@@ -265,6 +266,11 @@ Every project I build reflects my commitment to excellence, creativity, and fait
     <h3>Projects</h3>
     <div class="filter-bar">
       <input type="text" id="projectSearch" placeholder="🔍 Search projects...">
+      <select id="projectSort" aria-label="Sort projects">
+        <option value="default">Sort: Default</option>
+        <option value="az">Sort: A-Z</option>
+        <option value="za">Sort: Z-A</option>
+      </select>
       <p id="projectCount" class="project-count">Showing 3 projects</p>
     </div>
     <div class="project-grid" id="projectGrid">
@@ -292,6 +298,16 @@ Every project I build reflects my commitment to excellence, creativity, and fait
   </div>
 </div>
 
+  <section class="services" data-aos="fade-up">
+    <h3>Services I Offer</h3>
+    <div class="services-grid">
+      <article class="service-card"><h4>Frontend Development</h4><p>Modern, responsive websites and app interfaces built for performance and accessibility.</p></article>
+      <article class="service-card"><h4>Backend APIs</h4><p>Reliable Node.js APIs, authentication flows, and integrations for scalable products.</p></article>
+      <article class="service-card"><h4>UI/Brand Design</h4><p>Clean UI systems and visual assets that improve trust, clarity, and conversions.</p></article>
+    </div>
+  </section>
+
+
   <!-- Timeline -->
   <section id="timeline" class="timeline" data-aos="fade-left">
     <h3>My Journey</h3>
@@ -304,8 +320,15 @@ Every project I build reflects my commitment to excellence, creativity, and fait
   <!-- Testimonials -->
   <section class="testimonials" data-aos="fade-up">
     <h3>What People Say</h3>
-    <div class="testimonial">“Ugochukwu is a talented developer who delivered our project on time with great quality!” – Client A</div>
-    <div class="testimonial">“His designs are clean, modern, and user-friendly. Highly recommend!” – Client B</div>
+    <div class="testimonial-slider" id="testimonialSlider">
+      <div class="testimonial active">“Ugochukwu is a talented developer who delivered our project on time with great quality!” – Client A</div>
+      <div class="testimonial">“His designs are clean, modern, and user-friendly. Highly recommend!” – Client B</div>
+      <div class="testimonial">“Excellent communication, speed, and attention to detail from start to finish.” – Client C</div>
+    </div>
+    <div class="testimonial-controls">
+      <button id="prevTestimonial" type="button">←</button>
+      <button id="nextTestimonial" type="button">→</button>
+    </div>
   </section>
 
   <!-- Contact -->
@@ -328,6 +351,12 @@ Every project I build reflects my commitment to excellence, creativity, and fait
     <a href="https://github.com/Ugoyoungking" target="_blank">💻 GitHub</a>
     <a href="https://www.linkedin.com/in/ugochukwu-jonathan067" target="_blank">🔗 LinkedIn</a>
   </section>
+
+  <div class="social-dock">
+    <a href="https://github.com/Ugoyoungking" target="_blank" rel="noopener">GitHub</a>
+    <a href="https://www.linkedin.com/in/ugochukwu-jonathan067" target="_blank" rel="noopener">LinkedIn</a>
+    <a href="mailto:ugochukwujonathan067@gmail.com">Email</a>
+  </div>
 
   <footer><p>© 2026 Ugochukwu | Portfolio Website</p></footer>
   <button id="scrollTopBtn">⬆</button>

@@ -8,6 +8,11 @@ new Typed('.typed-text', {
   loop: true,
 });
 
+window.addEventListener('load', () => {
+  const preloader = document.getElementById('preloader');
+  if (preloader) preloader.classList.add('hidden');
+});
+
 const toggleDark = document.getElementById('toggle-dark');
 if (toggleDark) {
   toggleDark.addEventListener('click', () => {
@@ -82,6 +87,7 @@ if (doLogin && loginModal) {
 const searchInput = document.getElementById('projectSearch');
 const projects = document.querySelectorAll('.project');
 const projectCount = document.getElementById('projectCount');
+const projectSort = document.getElementById('projectSort');
 
 const updateProjectCount = () => {
   const visibleProjects = Array.from(projects).filter((project) => project.style.display !== 'none').length;
@@ -96,6 +102,21 @@ if (searchInput) {
       project.style.display = title.includes(search) ? 'block' : 'none';
     });
     updateProjectCount();
+  });
+}
+
+if (projectSort) {
+  projectSort.addEventListener('change', () => {
+    const grid = document.getElementById('projectGrid');
+    if (!grid) return;
+    const sorted = [...projects].sort((a, b) => {
+      const aTitle = a.dataset.title.toLowerCase();
+      const bTitle = b.dataset.title.toLowerCase();
+      if (projectSort.value === 'az') return aTitle.localeCompare(bTitle);
+      if (projectSort.value === 'za') return bTitle.localeCompare(aTitle);
+      return 0;
+    });
+    sorted.forEach((card) => grid.appendChild(card));
   });
 }
 updateProjectCount();
@@ -200,6 +221,37 @@ if (heroCanvas && typeof THREE !== 'undefined') {
     requestAnimationFrame(animate);
   };
   animate();
+}
+
+
+const testimonialItems = document.querySelectorAll('.testimonial-slider .testimonial');
+const prevTestimonial = document.getElementById('prevTestimonial');
+const nextTestimonial = document.getElementById('nextTestimonial');
+let testimonialIndex = 0;
+
+const showTestimonial = (index) => {
+  if (!testimonialItems.length) return;
+  testimonialItems.forEach((item, i) => item.classList.toggle('active', i === index));
+};
+
+if (testimonialItems.length) {
+  if (prevTestimonial) {
+    prevTestimonial.addEventListener('click', () => {
+      testimonialIndex = (testimonialIndex - 1 + testimonialItems.length) % testimonialItems.length;
+      showTestimonial(testimonialIndex);
+    });
+  }
+  if (nextTestimonial) {
+    nextTestimonial.addEventListener('click', () => {
+      testimonialIndex = (testimonialIndex + 1) % testimonialItems.length;
+      showTestimonial(testimonialIndex);
+    });
+  }
+  setInterval(() => {
+    testimonialIndex = (testimonialIndex + 1) % testimonialItems.length;
+    showTestimonial(testimonialIndex);
+  }, 4500);
+  showTestimonial(testimonialIndex);
 }
 
 const scrollBtn = document.getElementById('scrollTopBtn');
