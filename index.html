@@ -162,7 +162,6 @@
 </head>
 
 <body>
-  <div id="preloader"><div class="loader-orbit"></div><p>Loading experience...</p></div>
   <!-- ✅ Hidden Images (for Google Indexing Only) -->
   <div style="display:none;">
     <img src="https://image2url.com/images/1760142087082-0d9360e4-2d41-4459-a0a1-135afa56a7f7.jpg" alt="Ugochukwu Web Developer Portrait">
@@ -188,11 +187,7 @@
     <li><a href="biography.html">Biography</a></li>
    
   </ul>
-  <div class="nav-actions">
-    <button id="loginBtn" class="auth-btn" type="button">Login</button>
-    <button id="signupBtn" class="auth-btn" type="button">Signup</button>
-    <button id="toggle-dark" type="button">🌙 Dark Mode</button>
-  </div>
+  <button id="toggle-dark">🌙 Dark Mode</button>
 </nav>
 
 <!-- Login Modal -->
@@ -220,22 +215,10 @@
 
   <!-- Hero -->
   <section class="hero">
-    <div class="hero-glow hero-glow-one"></div>
-    <div class="hero-glow hero-glow-two"></div>
-    <canvas id="hero3d" aria-hidden="true"></canvas>
-    <div class="hero-content">
-      <h2>Hi, I'm Ugochukwu 👋</h2>
-      <p><span class="typed-text"></span></p>
-      <button onclick="window.location.href='#projects'">View My Work</button>
-      <a href="cv.pdf" download class="download-btn">📄 Download CV</a>
-    </div>
-  </section>
-
-  <section class="quick-stats" aria-label="Portfolio highlights">
-    <div class="stat-card" data-count="20">0<span>+</span><p>Projects Built</p></div>
-    <div class="stat-card" data-count="4">0<span>+</span><p>Years Learning</p></div>
-    <div class="stat-card" data-count="10">0<span>+</span><p>Happy Clients</p></div>
-    <div class="stat-card" data-count="6">0<span>+</span><p>Main Tech Stack</p></div>
+    <h2>Hi, I'm Ugochukwu 👋</h2>
+    <p><span class="typed-text"></span></p>
+    <button onclick="window.location.href='#projects'">View My Work</button>
+    <a href="cv.pdf" download class="download-btn">📄 Download CV</a>
   </section>
 
   <!-- About -->
@@ -264,49 +247,22 @@ Every project I build reflects my commitment to excellence, creativity, and fait
   <!-- Projects -->
   <section id="projects" class="projects" data-aos="fade-up">
     <h3>Projects</h3>
-    <div class="filter-bar">
-      <input type="text" id="projectSearch" placeholder="🔍 Search projects...">
-      <select id="projectSort" aria-label="Sort projects">
-        <option value="default">Sort: Default</option>
-        <option value="az">Sort: A-Z</option>
-        <option value="za">Sort: Z-A</option>
-      </select>
-      <p id="projectCount" class="project-count">Showing 3 projects</p>
-    </div>
+    <div class="filter-bar"><input type="text" id="projectSearch" placeholder="🔍 Search projects..."></div>
     <div class="project-grid" id="projectGrid">
-      <div class="project" data-title="Portfolio Website" data-link="https://ugoyoungking.github.io/portfolio/">
+      <div class="project" data-title="Portfolio Website">
         <img src="https://image2url.com/images/1759256821458-cff41bed-719d-485e-b61f-13581719a3d0.jpeg" alt="Project 1">
-        <h4>Portfolio Website</h4><p>A personal portfolio built with HTML, CSS, and JavaScript.</p><button class="project-view-btn" type="button">View Details</button>
+        <h4>Portfolio Website</h4><p>A personal portfolio built with HTML, CSS, and JavaScript.</p>
       </div>
-      <div class="project" data-title="Task Manager App" data-link="https://wachat-app.vercel.app/">
+      <div class="project" data-title="Task Manager App">
         <img src="https://image2url.com/images/1759257093694-61528718-9762-479b-bf27-05924ccccb91.png" alt="Project 2">
-        <h4>Task Manager App</h4><p>A full-stack task management app built with React & Node.js.</p><button class="project-view-btn" type="button">View Details</button>
+        <h4>Task Manager App</h4><p>A full-stack task management app built with React & Node.js.</p>
       </div>
-      <div class="project" data-title="E-Commerce Store" data-link="https://ugoai-studio.vercel.app/chat">
+      <div class="project" data-title="E-Commerce Store">
         <img src="https://image2url.com/images/1759257304155-e0c802ee-25f5-45f8-b401-b99926828f30.png" alt="Project 3">
-        <h4>E-Commerce Store</h4><p>An online shop with product listings and cart functionality.</p><button class="project-view-btn" type="button">View Details</button>
+        <h4>E-Commerce Store</h4><p>An online shop with product listings and cart functionality.</p>
       </div>
     </div>
   </section>
-
-<div class="modal" id="projectModal">
-  <div class="modal-content">
-    <span class="close" id="closeProjectModal">&times;</span>
-    <h3 id="projectModalTitle">Project Details</h3>
-    <p id="projectModalDescription"></p>
-    <a id="projectModalLink" href="#" target="_blank" rel="noopener">Open Project</a>
-  </div>
-</div>
-
-  <section class="services" data-aos="fade-up">
-    <h3>Services I Offer</h3>
-    <div class="services-grid">
-      <article class="service-card"><h4>Frontend Development</h4><p>Modern, responsive websites and app interfaces built for performance and accessibility.</p></article>
-      <article class="service-card"><h4>Backend APIs</h4><p>Reliable Node.js APIs, authentication flows, and integrations for scalable products.</p></article>
-      <article class="service-card"><h4>UI/Brand Design</h4><p>Clean UI systems and visual assets that improve trust, clarity, and conversions.</p></article>
-    </div>
-  </section>
-
 
   <!-- Timeline -->
   <section id="timeline" class="timeline" data-aos="fade-left">
@@ -320,15 +276,8 @@ Every project I build reflects my commitment to excellence, creativity, and fait
   <!-- Testimonials -->
   <section class="testimonials" data-aos="fade-up">
     <h3>What People Say</h3>
-    <div class="testimonial-slider" id="testimonialSlider">
-      <div class="testimonial active">“Ugochukwu is a talented developer who delivered our project on time with great quality!” – Client A</div>
-      <div class="testimonial">“His designs are clean, modern, and user-friendly. Highly recommend!” – Client B</div>
-      <div class="testimonial">“Excellent communication, speed, and attention to detail from start to finish.” – Client C</div>
-    </div>
-    <div class="testimonial-controls">
-      <button id="prevTestimonial" type="button">←</button>
-      <button id="nextTestimonial" type="button">→</button>
-    </div>
+    <div class="testimonial">“Ugochukwu is a talented developer who delivered our project on time with great quality!” – Client A</div>
+    <div class="testimonial">“His designs are clean, modern, and user-friendly. Highly recommend!” – Client B</div>
   </section>
 
   <!-- Contact -->
@@ -352,12 +301,6 @@ Every project I build reflects my commitment to excellence, creativity, and fait
     <a href="https://www.linkedin.com/in/ugochukwu-jonathan067" target="_blank">🔗 LinkedIn</a>
   </section>
 
-  <div class="social-dock">
-    <a href="https://github.com/Ugoyoungking" target="_blank" rel="noopener">GitHub</a>
-    <a href="https://www.linkedin.com/in/ugochukwu-jonathan067" target="_blank" rel="noopener">LinkedIn</a>
-    <a href="mailto:ugochukwujonathan067@gmail.com">Email</a>
-  </div>
-
   <footer><p>© 2026 Ugochukwu | Portfolio Website</p></footer>
   <button id="scrollTopBtn">⬆</button>
 
@@ -365,7 +308,6 @@ Every project I build reflects my commitment to excellence, creativity, and fait
   <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
   <script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
-  <script src="https://unpkg.com/three@0.159.0/build/three.min.js"></script>
   <script src="app.js"></script>
 </body>
 </html>
