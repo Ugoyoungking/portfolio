@@ -162,6 +162,19 @@
 </head>
 
 <body>
+  <div id="preloader" aria-hidden="true">
+    <div>
+      <div class="loader-orbit"></div>
+      <p>Loading portfolio...</p>
+    </div>
+  </div>
+
+  <div class="social-dock" aria-label="Quick social links">
+    <a href="https://github.com/Ugoyoungking" target="_blank" rel="noopener noreferrer">GitHub</a>
+    <a href="https://www.linkedin.com/in/ugochukwu-jonathan067" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+    <a href="mailto:ugochukwujonathan067@gmail.com">Email</a>
+  </div>
+
   <!-- ✅ Hidden Images (for Google Indexing Only) -->
   <div style="display:none;">
     <img src="https://image2url.com/images/1760142087082-0d9360e4-2d41-4459-a0a1-135afa56a7f7.jpg" alt="Ugochukwu Web Developer Portrait">
@@ -187,7 +200,11 @@
     <li><a href="biography.html">Biography</a></li>
    
   </ul>
-  <button id="toggle-dark">🌙 Dark Mode</button>
+  <div class="nav-actions">
+    <button class="auth-btn" id="loginBtn">Login</button>
+    <button class="auth-btn" id="signupBtn">Signup</button>
+    <button id="toggle-dark">🌙 Dark Mode</button>
+  </div>
 </nav>
 
 <!-- Login Modal -->
@@ -215,10 +232,22 @@
 
   <!-- Hero -->
   <section class="hero">
-    <h2>Hi, I'm Ugochukwu 👋</h2>
-    <p><span class="typed-text"></span></p>
-    <button onclick="window.location.href='#projects'">View My Work</button>
-    <a href="cv.pdf" download class="download-btn">📄 Download CV</a>
+    <canvas id="hero3d" aria-hidden="true"></canvas>
+    <div class="hero-glow hero-glow-one"></div>
+    <div class="hero-glow hero-glow-two"></div>
+    <div class="hero-content">
+      <h2>Hi, I'm Ugochukwu 👋</h2>
+      <p><span class="typed-text"></span></p>
+      <button onclick="window.location.href='#projects'">View My Work</button>
+      <a href="cv.pdf" download class="download-btn">📄 Download CV</a>
+    </div>
+  </section>
+
+  <section class="quick-stats" aria-label="Portfolio highlights">
+    <article class="stat-card"><span class="stat-number" data-target="20">0</span>+<p>Completed Projects</p></article>
+    <article class="stat-card"><span class="stat-number" data-target="4">0</span>+<p>Years Learning</p></article>
+    <article class="stat-card"><span class="stat-number" data-target="10">0</span>+<p>Technologies Used</p></article>
+    <article class="stat-card"><span class="stat-number" data-target="100">0</span>%<p>Client Focus</p></article>
   </section>
 
   <!-- About -->
@@ -247,7 +276,15 @@ Every project I build reflects my commitment to excellence, creativity, and fait
   <!-- Projects -->
   <section id="projects" class="projects" data-aos="fade-up">
     <h3>Projects</h3>
-    <div class="filter-bar"><input type="text" id="projectSearch" placeholder="🔍 Search projects..."></div>
+    <div class="filter-bar">
+      <input type="text" id="projectSearch" placeholder="🔍 Search projects...">
+      <select id="projectSort" aria-label="Sort projects">
+        <option value="default">Sort: Default</option>
+        <option value="az">Sort: A-Z</option>
+        <option value="za">Sort: Z-A</option>
+      </select>
+    </div>
+    <p class="project-count" id="projectCount">Showing 3 projects</p>
     <div class="project-grid" id="projectGrid">
       <div class="project" data-title="Portfolio Website">
         <img src="https://image2url.com/images/1759256821458-cff41bed-719d-485e-b61f-13581719a3d0.jpeg" alt="Project 1">
@@ -264,6 +301,16 @@ Every project I build reflects my commitment to excellence, creativity, and fait
     </div>
   </section>
 
+  <section class="services" data-aos="fade-up">
+    <h3>Services I Offer</h3>
+    <div class="services-grid">
+      <article class="service-card"><h4>Frontend Development</h4><p>Responsive interfaces with modern HTML, CSS, and JavaScript.</p></article>
+      <article class="service-card"><h4>React Applications</h4><p>Fast, scalable single-page apps with reusable components.</p></article>
+      <article class="service-card"><h4>Backend APIs</h4><p>Node.js APIs and data handling for complete web solutions.</p></article>
+      <article class="service-card"><h4>Graphic Design</h4><p>Brand-aligned visuals for social media and digital products.</p></article>
+    </div>
+  </section>
+
   <!-- Timeline -->
   <section id="timeline" class="timeline" data-aos="fade-left">
     <h3>My Journey</h3>
@@ -276,8 +323,15 @@ Every project I build reflects my commitment to excellence, creativity, and fait
   <!-- Testimonials -->
   <section class="testimonials" data-aos="fade-up">
     <h3>What People Say</h3>
-    <div class="testimonial">“Ugochukwu is a talented developer who delivered our project on time with great quality!” – Client A</div>
-    <div class="testimonial">“His designs are clean, modern, and user-friendly. Highly recommend!” – Client B</div>
+    <div class="testimonial-slider">
+      <div class="testimonial active">“Ugochukwu is a talented developer who delivered our project on time with great quality!” – Client A</div>
+      <div class="testimonial">“His designs are clean, modern, and user-friendly. Highly recommend!” – Client B</div>
+      <div class="testimonial">“Communication was smooth, and the website performance improved massively.” – Startup Founder</div>
+    </div>
+    <div class="testimonial-controls">
+      <button type="button" id="prevTestimonial" aria-label="Previous testimonial">←</button>
+      <button type="button" id="nextTestimonial" aria-label="Next testimonial">→</button>
+    </div>
   </section>
 
   <!-- Contact -->
@@ -307,6 +361,7 @@ Every project I build reflects my commitment to excellence, creativity, and fait
   <!-- JS -->
   <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
+  <script src="https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
   <script src="app.js"></script>
 </body>
