@@ -257,9 +257,72 @@
       .hero img { margin: 0 auto; }
       .stats { grid-template-columns: repeat(2, minmax(120px, 1fr)); }
     }
+
+
+    html { scroll-behavior: smooth; }
+
+    #bioScrollProgress {
+      position: fixed;
+      top: 0;
+      left: 0;
+      height: 4px;
+      width: 0;
+      z-index: 999;
+      background: linear-gradient(90deg, #2563eb, #22c55e, #a855f7);
+      box-shadow: 0 0 10px rgba(37, 99, 235, 0.6);
+    }
+
+    .topbar { transition: all 0.35s ease; }
+    .topbar.scrolled {
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.09);
+      background: rgba(248, 250, 252, 0.82);
+    }
+
+    .hero,
+    section,
+    .stat,
+    .timeline-item,
+    .links a {
+      transition: all 0.35s ease;
+    }
+
+    .hero:hover,
+    section:hover,
+    .stat:hover,
+    .timeline-item:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 14px 26px rgba(15, 23, 42, 0.08);
+    }
+
+    .reveal {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+
+    .reveal.in-view {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .reviews .review-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 12px;
+    }
+
+    .review-item {
+      border: 1px solid var(--line);
+      border-radius: 12px;
+      background: #f8fbff;
+      padding: 14px;
+      color: var(--secondary);
+      font-style: italic;
+    }
+
   </style>
 </head>
 <body>
+  <div id="bioScrollProgress" aria-hidden="true"></div>
   <nav class="topbar">
     <div class="topbar-inner">
       <a href="index.html">← Back to Portfolio</a>
@@ -338,6 +401,16 @@
       <p>Faith plays a foundational role in Ugochukwu Jonathan’s life and work. He is guided by integrity, excellence, and purpose-driven innovation. His long-term vision is to rank among top African developers and AI founders by building globally impactful products from Nigeria.</p>
     </section>
 
+
+    <section class="reviews">
+      <h2>Reviews & Endorsements</h2>
+      <div class="review-grid">
+        <article class="review-item">“A focused builder with consistent product delivery and strong UI taste.”</article>
+        <article class="review-item">“Brings AI ideas into practical products users can actually use.”</article>
+        <article class="review-item">“Excellent blend of frontend polish and backend thinking.”</article>
+      </div>
+    </section>
+
     <section>
       <h2>Connect</h2>
       <div class="links">
@@ -353,5 +426,34 @@
       <p>Based in Port Harcourt, Rivers State, Nigeria.</p>
     </footer>
   </main>
+
+  <script>
+    const topbar = document.querySelector('.topbar');
+    const progress = document.getElementById('bioScrollProgress');
+
+    const updateBioScroll = () => {
+      const full = document.documentElement.scrollHeight - window.innerHeight;
+      const percent = full > 0 ? (window.scrollY / full) * 100 : 0;
+      if (progress) progress.style.width = `${Math.min(percent, 100)}%`;
+      if (topbar) topbar.classList.toggle('scrolled', window.scrollY > 20);
+    };
+
+    window.addEventListener('scroll', updateBioScroll);
+    updateBioScroll();
+
+    const nodes = document.querySelectorAll('.hero, section, .stat, .timeline-item');
+    nodes.forEach((node) => node.classList.add('reveal'));
+
+    const io = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('in-view');
+          io.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.12 });
+
+    nodes.forEach((node) => io.observe(node));
+  </script>
 </body>
 </html>
