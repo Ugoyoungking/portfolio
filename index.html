@@ -156,12 +156,14 @@
 
 
   <!-- ✅ CSS -->
+  <link rel="stylesheet" href="https://unpkg.com/aos@2.3.1/dist/aos.css">
   <link rel="stylesheet" href="style.css">
   <link rel="alternate" type="application/ld+json" href="https://ugoyoungking.github.io/portfolio/knowledge.json">
 
 </head>
 
 <body>
+  <div id="scrollProgress" aria-hidden="true"></div>
   <!-- ✅ Hidden Images (for Google Indexing Only) -->
   <div style="display:none;">
     <img src="https://image2url.com/images/1760142087082-0d9360e4-2d41-4459-a0a1-135afa56a7f7.jpg" alt="Ugochukwu Web Developer Portrait">
@@ -218,11 +220,16 @@
 </div>
 
   <!-- Hero -->
-  <section class="hero">
-    <h2>Hi, I'm Ugochukwu 👋</h2>
-    <p><span class="typed-text"></span></p>
-    <button onclick="window.location.href='#projects'">View My Work</button>
-    <a href="cv.pdf" download class="download-btn">📄 Download CV</a>
+  <section class="hero reveal-section">
+    <div class="hero-glow hero-glow-one" aria-hidden="true"></div>
+    <div class="hero-glow hero-glow-two" aria-hidden="true"></div>
+    <div class="hero-content">
+      <h2>Hi, I'm Ugochukwu 👋</h2>
+      <p><span class="typed-text"></span></p>
+      <p class="availability">🟢 Available for freelance and remote roles</p>
+      <button onclick="window.location.href='#projects'">View My Work</button>
+      <a href="cv.pdf" download class="download-btn">📄 Download CV</a>
+    </div>
   </section>
 
   <!-- About -->
@@ -252,22 +259,34 @@ Every project I build reflects my commitment to excellence, creativity, and fait
   <section id="projects" class="projects" data-aos="fade-up">
     <h3>Projects</h3>
     <div class="filter-bar">
-      <input type="text" id="projectSearch" placeholder="🔍 Search projects...">
+      <input type="text" id="projectSearch" placeholder="🔍 Search projects..." aria-label="Search projects by title">
+      <div class="project-filters" role="group" aria-label="Filter projects by type">
+        <button type="button" class="project-filter-btn active" data-filter="all">All</button>
+        <button type="button" class="project-filter-btn" data-filter="frontend">Frontend</button>
+        <button type="button" class="project-filter-btn" data-filter="fullstack">Full-Stack</button>
+        <button type="button" class="project-filter-btn" data-filter="ai">AI</button>
+      </div>
       <p id="projectCount" class="project-count">Showing 3 projects</p>
+      <p id="projectEmptyState" class="project-empty" hidden>No projects match this search yet. Try another keyword or filter.</p>
     </div>
     <div class="project-grid" id="projectGrid">
-      <div class="project" data-title="Portfolio Website" data-link="https://ugoyoungking.github.io/portfolio/">
+      <div class="project" data-title="Portfolio Website" data-category="frontend" data-link="https://ugoyoungking.github.io/portfolio/">
         <img src="https://image2url.com/images/1759256821458-cff41bed-719d-485e-b61f-13581719a3d0.jpeg" alt="Project 1">
         <h4>Portfolio Website</h4><p>A personal portfolio built with HTML, CSS, and JavaScript.</p><button class="project-view-btn" type="button">View Details</button>
       </div>
-      <div class="project" data-title="Task Manager App" data-link="https://wachat-app.vercel.app/">
+      <div class="project" data-title="Task Manager App" data-category="fullstack" data-link="https://wachat-app.vercel.app/">
         <img src="https://image2url.com/images/1759257093694-61528718-9762-479b-bf27-05924ccccb91.png" alt="Project 2">
         <h4>Task Manager App</h4><p>A full-stack task management app built with React & Node.js.</p><button class="project-view-btn" type="button">View Details</button>
       </div>
-      <div class="project" data-title="E-Commerce Store" data-link="https://ugoai-studio.vercel.app/chat">
+      <div class="project" data-title="E-Commerce Store" data-category="ai" data-link="https://ugoai-studio.vercel.app/chat">
         <img src="https://image2url.com/images/1759257304155-e0c802ee-25f5-45f8-b401-b99926828f30.png" alt="Project 3">
         <h4>E-Commerce Store</h4><p>An online shop with product listings and cart functionality.</p><button class="project-view-btn" type="button">View Details</button>
       </div>
+    </div>
+    <div class="github-projects-wrap" aria-live="polite">
+      <h4 class="github-projects-title">Latest from GitHub</h4>
+      <p class="github-projects-note">Auto-synced from my public repositories.</p>
+      <div id="githubProjects" class="project-grid"></div>
     </div>
   </section>
 
@@ -325,5 +344,6 @@ Every project I build reflects my commitment to excellence, creativity, and fait
   <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
   <script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
   <script src="app.js"></script>
+  <script src="github-projects.js"></script>
 </body>
 </html>

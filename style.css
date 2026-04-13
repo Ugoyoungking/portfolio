@@ -344,3 +344,181 @@ body.dark .service-card { background:#252b33; border-color:#3a4452; }
 .social-dock a:hover { background:#2563eb; }
 
 @media (max-width:768px){ .social-dock{left:auto; right:10px; bottom:80px;} }
+
+.availability {
+  display: inline-block;
+  margin: 6px 0 14px;
+  padding: 6px 12px;
+  border-radius: 999px;
+  font-weight: 600;
+  font-size: 0.9rem;
+  background: rgba(255, 255, 255, 0.2);
+  border: 1px solid rgba(255, 255, 255, 0.45);
+}
+
+.project-filters {
+  margin-top: 12px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 8px;
+}
+
+.project-filter-btn {
+  border: 1px solid #16a085;
+  color: #16a085;
+  background: transparent;
+  border-radius: 999px;
+  padding: 6px 12px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.project-filter-btn.active,
+.project-filter-btn:hover {
+  background: #16a085;
+  color: #fff;
+}
+
+.project-empty {
+  margin-top: 10px;
+  color: #7f8c8d;
+  font-size: 0.95rem;
+}
+
+body.dark .project-empty {
+  color: #c6d0db;
+}
+
+.github-projects-wrap {
+  margin-top: 32px;
+  text-align: left;
+}
+
+.github-projects-title {
+  text-align: center;
+  color: #2980b9;
+  margin-bottom: 6px;
+}
+
+.github-projects-note {
+  text-align: center;
+  color: #7f8c8d;
+  margin-bottom: 16px;
+}
+
+.github-project {
+  padding: 16px;
+}
+
+.github-project h4 {
+  margin: 0 0 10px;
+}
+
+.github-meta {
+  margin-top: 10px;
+  font-size: 0.85rem;
+  color: #6b7280;
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.github-link {
+  display: inline-block;
+  margin-top: 12px;
+  text-decoration: none;
+  color: #fff;
+  background: #1f6693;
+  border-radius: 6px;
+  padding: 8px 12px;
+}
+
+.github-link:hover {
+  background: #155074;
+}
+
+body.dark .github-projects-note,
+body.dark .github-meta {
+  color: #c6d0db;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body,
+button,
+a,
+.project,
+.skill,
+.timeline-item,
+.testimonial,
+.service-card {
+  transition: all 0.35s ease;
+}
+
+#scrollProgress {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 4px;
+  width: 0;
+  z-index: 5000;
+  background: linear-gradient(90deg, #1abc9c, #3498db, #8e44ad);
+  box-shadow: 0 0 12px rgba(52, 152, 219, 0.7);
+}
+
+nav {
+  backdrop-filter: blur(10px);
+}
+
+nav.scrolled {
+  background: rgba(44, 62, 80, 0.85);
+  box-shadow: 0 8px 22px rgba(0, 0, 0, 0.18);
+}
+
+.reveal-section {
+  opacity: 0;
+  transform: translateY(24px);
+}
+
+.reveal-section.in-view {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.project,
+.skill,
+.timeline-item,
+.testimonial,
+.github-project {
+  will-change: transform;
+}
+
+.project:hover,
+.skill:hover,
+.timeline-item:hover,
+.testimonial:hover,
+.github-project:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 16px 30px rgba(0, 0, 0, 0.14);
+}
+
+.hero::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at 15% 20%, rgba(255, 255, 255, 0.2), transparent 45%),
+    radial-gradient(circle at 85% 80%, rgba(255, 255, 255, 0.2), transparent 40%);
+  pointer-events: none;
+}
+
+.hero-content {
+  animation: heroRise 0.9s ease both;
+}
+
+@keyframes heroRise {
+  from { opacity: 0; transform: translateY(18px); }
+  to { opacity: 1; transform: translateY(0); }
+}

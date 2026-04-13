@@ -281,3 +281,81 @@ h3 {
     padding: 20px;
   }
 }
+
+#scrollProgress {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 4px;
+  width: 0;
+  z-index: 2000;
+  background: linear-gradient(90deg, #38bdf8, #22d3ee, #facc15);
+  box-shadow: 0 0 10px rgba(56, 189, 248, 0.65);
+}
+
+.navbar {
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  backdrop-filter: blur(8px);
+  transition: all 0.35s ease;
+}
+
+.navbar.scrolled {
+  background: rgba(30, 41, 59, 0.85);
+  box-shadow: 0 8px 18px rgba(0, 0, 0, 0.35);
+}
+
+main section,
+.profile-intro,
+.hero-content,
+.review-card,
+.timeline li,
+.skill-list li,
+.contact p {
+  transition: all 0.35s ease;
+}
+
+.reveal {
+  opacity: 0;
+  transform: translateY(22px);
+}
+
+.reveal.in-view {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.timeline li:hover,
+.skill-list li:hover,
+.review-card:hover {
+  transform: translateY(-5px);
+}
+
+.reviews {
+  margin-top: 50px;
+}
+
+.review-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 14px;
+}
+
+.review-card {
+  background: #1e293b;
+  border: 1px solid #334155;
+  border-radius: 14px;
+  padding: 16px;
+  box-shadow: 0 8px 18px rgba(0, 0, 0, 0.22);
+}
+
+.review-card p {
+  color: #e2e8f0;
+  margin-bottom: 8px;
+}
+
+.review-card span {
+  color: #7dd3fc;
+  font-size: 0.9rem;
+}

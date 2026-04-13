@@ -7,11 +7,52 @@ new Typed('.typed-text', {
   loop: true,
 });
 
+
+const nav = document.querySelector('nav');
+const scrollProgress = document.getElementById('scrollProgress');
+
+const updateScrollUI = () => {
+  const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+  const progress = docHeight > 0 ? (window.scrollY / docHeight) * 100 : 0;
+  if (scrollProgress) {
+    scrollProgress.style.width = `${Math.min(progress, 100)}%`;
+  }
+  if (nav) {
+    nav.classList.toggle('scrolled', window.scrollY > 20);
+  }
+};
+
+window.addEventListener('scroll', updateScrollUI);
+updateScrollUI();
+
+const revealSections = document.querySelectorAll('section');
+revealSections.forEach((section) => section.classList.add('reveal-section'));
+
+const revealObserver = new IntersectionObserver(
+  (entries) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('in-view');
+        revealObserver.unobserve(entry.target);
+      }
+    });
+  },
+  { threshold: 0.12 },
+);
+
+revealSections.forEach((section) => revealObserver.observe(section));
 const toggleDark = document.getElementById('toggle-dark');
+const savedTheme = localStorage.getItem('theme');
+if (savedTheme === 'dark') {
+  document.body.classList.add('dark');
+}
 if (toggleDark) {
+  toggleDark.textContent = document.body.classList.contains('dark') ? '☀️ Light Mode' : '🌙 Dark Mode';
   toggleDark.addEventListener('click', () => {
     document.body.classList.toggle('dark');
-    toggleDark.textContent = document.body.classList.contains('dark') ? '☀️ Light Mode' : '🌙 Dark Mode';
+    const isDark = document.body.classList.contains('dark');
+    localStorage.setItem('theme', isDark ? 'dark' : 'light');
+    toggleDark.textContent = isDark ? '☀️ Light Mode' : '🌙 Dark Mode';
   });
 }
 
@@ -93,30 +134,49 @@ if (doLogin && loginModal) {
   };
 }
 
-// Project search + count feature
+// Project search + category filter + count feature
 const searchInput = document.getElementById('projectSearch');
 const projects = document.querySelectorAll('.project');
 const projectCount = document.getElementById('projectCount');
+const projectEmptyState = document.getElementById('projectEmptyState');
+const projectFilterBtns = document.querySelectorAll('.project-filter-btn');
+let activeFilter = 'all';
 
-const updateProjectCount = () => {
+const applyProjectFilters = () => {
+  const search = (searchInput?.value || '').toLowerCase().trim();
+
+  projects.forEach((project) => {
+    const title = (project.dataset.title || '').toLowerCase();
+    const category = (project.dataset.category || '').toLowerCase();
+    const matchesSearch = title.includes(search);
+    const matchesFilter = activeFilter === 'all' || category === activeFilter;
+
+    project.style.display = matchesSearch && matchesFilter ? 'block' : 'none';
+  });
+
   const visibleProjects = Array.from(projects).filter((project) => project.style.display !== 'none').length;
   if (projectCount) {
     projectCount.textContent = `Showing ${visibleProjects} project${visibleProjects === 1 ? '' : 's'}`;
   }
+  if (projectEmptyState) {
+    projectEmptyState.hidden = visibleProjects !== 0;
+  }
 };
 
 if (searchInput) {
-  searchInput.addEventListener('keyup', () => {
-    const search = searchInput.value.toLowerCase();
-    projects.forEach((project) => {
-      const title = project.dataset.title.toLowerCase();
-      project.style.display = title.includes(search) ? 'block' : 'none';
-    });
-    updateProjectCount();
-  });
+  searchInput.addEventListener('input', applyProjectFilters);
 }
 
-updateProjectCount();
+projectFilterBtns.forEach((btn) => {
+  btn.addEventListener('click', () => {
+    activeFilter = btn.dataset.filter || 'all';
+    projectFilterBtns.forEach((node) => node.classList.remove('active'));
+    btn.classList.add('active');
+    applyProjectFilters();
+  });
+});
+
+applyProjectFilters();
 
 // Project details modal feature
 const projectModalTitle = document.getElementById('projectModalTitle');
