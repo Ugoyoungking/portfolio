@@ -1,6 +1,20 @@
 *{margin:0;padding:0;box-sizing:border-box}
 body{font-family:"Segoe UI",sans-serif;background:#f5f6fa;color:#2c3e50;line-height:1.6;transition:background .3s,color .3s}
 body.dark{background:#1e272e;color:#d2dae2}
+.skip-link {
+  position: absolute;
+  left: 12px;
+  top: -45px;
+  background: #111827;
+  color: #fff;
+  padding: 10px 14px;
+  border-radius: 8px;
+  z-index: 6000;
+  text-decoration: none;
+}
+.skip-link:focus {
+  top: 10px;
+}
 nav{background:#2c3e50;padding:15px 40px;display:flex;justify-content:space-between;align-items:center;position:sticky;top:0;z-index:100}
 nav h1{color:#fff;font-size:1.5rem}
 nav ul{list-style:none;display:flex;gap:20px}
@@ -195,6 +209,62 @@ body.dark .contact form{background:#2f3640}
 .contact form button:hover{background:#16a085}
 footer{background:#2c3e50;color:white;text-align:center;padding:15px}
 #scrollTopBtn{position:fixed;bottom:30px;right:30px;background:#1abc9c;border:none;color:white;padding:12px 16px;border-radius:50%;font-size:1.2rem;cursor:pointer;display:none}
+.device-log-btn {
+  position: fixed;
+  left: 14px;
+  bottom: 24px;
+  border: none;
+  background: #0f766e;
+  color: #fff;
+  padding: 10px 14px;
+  border-radius: 999px;
+  font-weight: 700;
+  cursor: pointer;
+  z-index: 1200;
+}
+.device-log-btn:hover { background: #0b5f59; }
+.quick-actions-btn {
+  position: fixed;
+  right: 30px;
+  bottom: 90px;
+  border: none;
+  background: #111827;
+  color: #fff;
+  border-radius: 999px;
+  padding: 10px 14px;
+  font-weight: 700;
+  cursor: pointer;
+  box-shadow: 0 8px 16px rgba(0,0,0,.25);
+}
+.quick-actions-content {
+  width: min(92vw, 420px);
+}
+.quick-actions-hint {
+  margin: 8px 0 12px;
+  color: #6b7280;
+  font-size: .9rem;
+}
+.quick-actions-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 8px;
+}
+.quick-action-item {
+  border: 1px solid #d1d5db;
+  background: #f9fafb;
+  border-radius: 8px;
+  padding: 10px 8px;
+  cursor: pointer;
+  font-weight: 600;
+}
+.quick-action-item:hover {
+  background: #e5e7eb;
+}
+body.dark .quick-action-item {
+  background: #2f3640;
+  border-color: #4b5563;
+  color: #e5e7eb;
+}
 @media(max-width:768px){.about{flex-direction:column;text-align:center}}
 
 /* Modern enhancements */

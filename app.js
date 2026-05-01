@@ -42,19 +42,31 @@ const revealObserver = new IntersectionObserver(
 
 revealSections.forEach((section) => revealObserver.observe(section));
 const toggleDark = document.getElementById('toggle-dark');
+const prefersDark = window.matchMedia('(prefers-color-scheme: dark)');
 const savedTheme = localStorage.getItem('theme');
-if (savedTheme === 'dark') {
-  document.body.classList.add('dark');
+const applyTheme = (theme) => {
+  document.body.classList.toggle('dark', theme === 'dark');
+  if (toggleDark) {
+    toggleDark.textContent = theme === 'dark' ? '☀️ Light Mode' : '🌙 Dark Mode';
+  }
+};
+if (savedTheme) {
+  applyTheme(savedTheme);
+} else {
+  applyTheme(prefersDark.matches ? 'dark' : 'light');
 }
 if (toggleDark) {
-  toggleDark.textContent = document.body.classList.contains('dark') ? '☀️ Light Mode' : '🌙 Dark Mode';
   toggleDark.addEventListener('click', () => {
-    document.body.classList.toggle('dark');
-    const isDark = document.body.classList.contains('dark');
-    localStorage.setItem('theme', isDark ? 'dark' : 'light');
-    toggleDark.textContent = isDark ? '☀️ Light Mode' : '🌙 Dark Mode';
+    const nextTheme = document.body.classList.contains('dark') ? 'light' : 'dark';
+    localStorage.setItem('theme', nextTheme);
+    applyTheme(nextTheme);
   });
 }
+prefersDark.addEventListener('change', (event) => {
+  if (!localStorage.getItem('theme')) {
+    applyTheme(event.matches ? 'dark' : 'light');
+  }
+});
 
 // Hamburger menu toggle
 const hamburger = document.getElementById('hamburger');
@@ -70,6 +82,7 @@ if (hamburger && navLinks) {
 const loginModal = document.getElementById('loginModal');
 const signupModal = document.getElementById('signupModal');
 const projectModal = document.getElementById('projectModal');
+const quickActionsModal = document.getElementById('quickActionsModal');
 const closeBtns = document.querySelectorAll('.close');
 
 const loginBtn = document.getElementById('loginBtn');
@@ -91,6 +104,7 @@ closeBtns.forEach((btn) => {
     if (loginModal) loginModal.style.display = 'none';
     if (signupModal) signupModal.style.display = 'none';
     if (projectModal) projectModal.style.display = 'none';
+    if (quickActionsModal) quickActionsModal.style.display = 'none';
   };
 });
 
@@ -98,6 +112,7 @@ window.addEventListener('click', (event) => {
   if (event.target === loginModal) loginModal.style.display = 'none';
   if (event.target === signupModal) signupModal.style.display = 'none';
   if (event.target === projectModal) projectModal.style.display = 'none';
+  if (event.target === quickActionsModal) quickActionsModal.style.display = 'none';
 });
 
 // Demo signup/login (localStorage)
@@ -213,6 +228,48 @@ if (scrollBtn) {
   });
 }
 
+const quickActionsBtn = document.getElementById('quickActionsBtn');
+const quickActionItems = document.querySelectorAll('.quick-action-item');
+const toggleQuickActions = (show) => {
+  if (!quickActionsModal) return;
+  quickActionsModal.style.display = show ? 'flex' : 'none';
+};
+
+if (quickActionsBtn) {
+  quickActionsBtn.addEventListener('click', () => toggleQuickActions(true));
+}
+
+quickActionItems.forEach((item) => {
+  item.addEventListener('click', () => {
+    const target = item.dataset.target;
+    const action = item.dataset.action;
+    if (target) {
+      const section = document.querySelector(target);
+      if (section) section.scrollIntoView({ behavior: 'smooth' });
+    }
+    if (action === 'theme' && toggleDark) {
+      toggleDark.click();
+    }
+    toggleQuickActions(false);
+  });
+});
+
+window.addEventListener('keydown', (event) => {
+  const isMac = navigator.platform.toLowerCase().includes('mac');
+  const openShortcut = isMac ? event.metaKey && event.key.toLowerCase() === 'k' : event.ctrlKey && event.key.toLowerCase() === 'k';
+  if (openShortcut) {
+    event.preventDefault();
+    toggleQuickActions(true);
+  }
+  if (event.key === 'Escape') {
+    toggleQuickActions(false);
+  }
+  if (event.key === '/' && document.activeElement?.tagName !== 'INPUT' && document.activeElement?.tagName !== 'TEXTAREA') {
+    event.preventDefault();
+    searchInput?.focus();
+  }
+});
+
 // EmailJS config with graceful fallback
 const contactForm = document.getElementById('contact-form');
 const EMAILJS_PUBLIC_KEY = 'YOUR_USER_ID';
@@ -253,4 +310,71 @@ if (contactForm) {
         },
       );
   });
+}
+
+// Device visit tracking + JSON export
+const DEVICE_LOG_STORAGE_KEY = 'device_visit_log';
+const downloadDeviceLogBtn = document.getElementById('downloadDeviceLogBtn');
+
+const getDeviceType = () => {
+  const ua = navigator.userAgent.toLowerCase();
+  if (/tablet|ipad/.test(ua)) return 'tablet';
+  if (/mobi|android|iphone/.test(ua)) return 'mobile';
+  return 'desktop';
+};
+
+const getCurrentVisit = () => ({
+  visitedAt: new Date().toISOString(),
+  timezone: Intl.DateTimeFormat().resolvedOptions().timeZone || 'unknown',
+  language: navigator.language || 'unknown',
+  platform: navigator.platform || 'unknown',
+  userAgent: navigator.userAgent || 'unknown',
+  deviceType: getDeviceType(),
+  screen: {
+    width: window.screen?.width || null,
+    height: window.screen?.height || null,
+    colorDepth: window.screen?.colorDepth || null,
+    pixelRatio: window.devicePixelRatio || 1,
+  },
+  viewport: {
+    width: window.innerWidth,
+    height: window.innerHeight,
+  },
+});
+
+const readDeviceLog = () => {
+  try {
+    return JSON.parse(localStorage.getItem(DEVICE_LOG_STORAGE_KEY) || '[]');
+  } catch (error) {
+    return [];
+  }
+};
+
+const recordDeviceVisit = () => {
+  const logs = readDeviceLog();
+  logs.push(getCurrentVisit());
+  localStorage.setItem(DEVICE_LOG_STORAGE_KEY, JSON.stringify(logs, null, 2));
+};
+
+const downloadDeviceVisitJson = () => {
+  const logs = readDeviceLog();
+  const payload = {
+    generatedAt: new Date().toISOString(),
+    totalVisits: logs.length,
+    visits: logs,
+  };
+  const blob = new Blob([JSON.stringify(payload, null, 2)], { type: 'application/json' });
+  const url = URL.createObjectURL(blob);
+  const link = document.createElement('a');
+  link.href = url;
+  link.download = 'device-visit-log.json';
+  document.body.appendChild(link);
+  link.click();
+  document.body.removeChild(link);
+  URL.revokeObjectURL(url);
+};
+
+recordDeviceVisit();
+if (downloadDeviceLogBtn) {
+  downloadDeviceLogBtn.addEventListener('click', downloadDeviceVisitJson);
 }
