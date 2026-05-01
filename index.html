@@ -163,6 +163,7 @@
 </head>
 
 <body>
+  <a class="skip-link" href="#about">Skip to main content</a>
   <div id="scrollProgress" aria-hidden="true"></div>
   <!-- ✅ Hidden Images (for Google Indexing Only) -->
   <div style="display:none;">
@@ -338,6 +339,21 @@ Every project I build reflects my commitment to excellence, creativity, and fait
 
   <footer><p>© 2026 Ugochukwu | Portfolio Website</p></footer>
   <button id="scrollTopBtn">⬆</button>
+  <button id="quickActionsBtn" class="quick-actions-btn" type="button" aria-label="Open quick actions">⌘K</button>
+
+  <div class="modal" id="quickActionsModal">
+    <div class="modal-content quick-actions-content">
+      <span class="close">&times;</span>
+      <h3>Quick Actions</h3>
+      <p class="quick-actions-hint">Use <strong>Ctrl/Cmd + K</strong> anytime to open this menu.</p>
+      <div class="quick-actions-grid">
+        <button type="button" class="quick-action-item" data-target="#about">Go to About</button>
+        <button type="button" class="quick-action-item" data-target="#projects">Go to Projects</button>
+        <button type="button" class="quick-action-item" data-target="#contact">Go to Contact</button>
+        <button type="button" class="quick-action-item" data-action="theme">Toggle Theme</button>
+      </div>
+    </div>
+  </div>
 
   <!-- JS -->
   <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
